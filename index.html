@@ -42,27 +42,45 @@
 
   <!-- MAIN -->
   <main class="home-page">
-    <!-- HERO -->
+    <!-- HERO with video -->
     <section class="home-hero">
-      <div class="home-hero-text">
-        <p class="section-tagline">Strength built within.</p>
-        <h1>A space for men to build real strength</h1>
-        <p class="section-subtitle">
-          GRIT helps men build physical, mental, and spiritual strength in ways that fit real life —
-          school, work, family, faith, and everything in between. No hype. No perfection. Just
-          honest tools you can actually use.
-        </p>
+      <div class="home-hero-grid">
+        <div class="home-hero-text">
+          <p class="section-tagline">Strength built within.</p>
+          <h1>A space for men to build real strength</h1>
+          <p class="section-subtitle">
+            GRIT helps men build physical, mental, and spiritual strength in ways that fit real life —
+            school, work, family, faith, and everything in between. No hype. No perfection. Just
+            honest tools you can actually use.
+          </p>
 
-        <div class="hero-cta-row">
-          <a href="start-here.html" class="btn btn-primary">Start here</a>
-          <a href="video-library.html" class="btn btn-ghost">Explore videos</a>
-          <a href="therapists.html" class="btn-link">Find a therapist →</a>
+          <div class="hero-cta-row">
+            <a href="start-here.html" class="btn btn-primary">Start here</a>
+            <a href="video-library.html" class="btn btn-ghost">Explore videos</a>
+            <a href="therapists.html" class="btn-link">Find a therapist →</a>
+          </div>
+
+          <div class="home-pillars-chips">
+            <span class="chip">physical grit</span>
+            <span class="chip">mental grit</span>
+            <span class="chip">spiritual grit</span>
+          </div>
         </div>
 
-        <div class="home-pillars-chips">
-          <span class="chip">physical grit</span>
-          <span class="chip">mental grit</span>
-          <span class="chip">spiritual grit</span>
+        <!-- HERO MEDIA: replace the src with your own YouTube/embed later -->
+        <div class="home-hero-media">
+          <div class="hero-video-frame">
+            <!-- Placeholder YouTube embed – swap out VIDEO_ID with your own -->
+            <iframe
+              src="https://www.youtube.com/embed/2LhoCfjm8R4"
+              title="GRIT hero video"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <p class="media-note">
+            This is a placeholder hero video. Replace the YouTube link with your own GRIT intro or movement clip.
+          </p>
         </div>
       </div>
     </section>
@@ -117,59 +135,49 @@
       </div>
     </section>
 
-    <!-- WHAT YOU GET INSIDE -->
+    <!-- FEATURED VIDEOS (thumbnails) -->
     <section class="home-section">
-      <h2>What you get inside GRIT</h2>
+      <h2>Featured GRIT videos</h2>
       <p class="home-section-intro">
-        GRIT is designed to be simple to use and easy to return to — especially on the days when you
-        feel tired, discouraged, or overloaded.
+        A quick look at the kinds of videos inside GRIT — movement, breathwork, and mental reset tools
+        you can actually finish.
       </p>
 
-      <div class="home-features-grid">
-        <article class="home-feature-card">
-          <h3>Video Library</h3>
-          <p>
-            Short, focused videos for movement, breathwork, mindset, and reflection. Built to fit
-            into 5–20 minute pockets of your day.
-          </p>
-          <p class="home-feature-link">
-            <a href="video-library.html">Browse the video library →</a>
-          </p>
+      <div class="home-media-grid">
+        <!-- Card 1 -->
+        <article class="home-media-card">
+          <div class="home-media-thumb">
+            <img src="images/physical-session.jpg" alt="Short strength session" />
+          </div>
+          <h3>10-minute strength reset</h3>
+          <p>Low-barrier movement for days when you’re tired but still want to show up.</p>
+          <p class="home-media-meta">Physical • 10 min</p>
         </article>
 
-        <article class="home-feature-card">
-          <h3>Articles & Guides</h3>
-          <p>
-            Long-form thoughts on stress, identity, recovery, and faith — written in plain language
-            for real men with real responsibilities.
-          </p>
-          <p class="home-feature-link">
-            <a href="blog.html">Read GRIT articles →</a>
-          </p>
+        <!-- Card 2 -->
+        <article class="home-media-card">
+          <div class="home-media-thumb">
+            <img src="images/mental-breath.jpg" alt="Breathing practice" />
+          </div>
+          <h3>Box breathing for overload</h3>
+          <p>A slow guided breathing session to help you downshift after a heavy day.</p>
+          <p class="home-media-meta">Mental • 8 min</p>
         </article>
 
-        <article class="home-feature-card">
-          <h3>Therapist Finder</h3>
-          <p>
-            A guided way to think through therapy options and look for professionals who understand
-            men’s mental health and your situation.
-          </p>
-          <p class="home-feature-link">
-            <a href="therapists.html">Use the therapist finder →</a>
-          </p>
-        </article>
-
-        <article class="home-feature-card">
-          <h3>Membership Tiers</h3>
-          <p>
-            Choose how much structure and support you want — from self-paced content up through
-            higher-touch coaching and community.
-          </p>
-          <p class="home-feature-link">
-            <a href="pricing.html">See GRIT membership options →</a>
-          </p>
+        <!-- Card 3 -->
+        <article class="home-media-card">
+          <div class="home-media-thumb">
+            <img src="images/spiritual-reflect.jpg" alt="Spiritual reflection" />
+          </div>
+          <h3>End-of-week reflection</h3>
+          <p>Questions to reconnect with your values, even when the week felt chaotic.</p>
+          <p class="home-media-meta">Spiritual • 12 min</p>
         </article>
       </div>
+
+      <p class="home-media-link">
+        <a href="video-library.html" class="btn-link">View the full GRIT video library →</a>
+      </p>
     </section>
 
     <!-- WHO IT'S FOR -->
