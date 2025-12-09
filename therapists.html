@@ -38,15 +38,280 @@
     </div>
   </header>
 
-  <main class="page-shell">
-    <div class="page-inner">
+  <main class="therapist-page">
+  <section class="finder-hero">
+    <p class="section-tagline">You don't have to figure this out alone.</p>
+    <h1>Find a Therapist Who Gets Men's Mental Health</h1>
+    <p class="section-subtitle">
+      GRIT helps you sort through options so you can find a therapist who fits your season of life,
+      your struggles, and your preferences. This is not therapy or crisis care – it’s a guide to good options.
+    </p>
+  </section>
 
-      <section class="section-padding">
-        <h1 class="page-title">Find a Therapist</h1>
-        <p class="page-subtitle">Use this page to explore options for licensed mental health professionals in your area.</p>
-      </section>
+  <section class="finder-shell" data-therapist-finder>
+    <form id="therapist-form" class="finder-form">
+      <h2>Tell us what you’re looking for</h2>
 
-    </div>
+      <div class="finder-grid">
+        <label class="finder-field">
+          <span>Location (ZIP or City, State)</span>
+          <input
+            type="text"
+            id="location"
+            name="location"
+            placeholder="e.g., 84058 or Orem, UT"
+          />
+        </label>
+
+        <label class="finder-field">
+          <span>Main thing you want help with</span>
+          <select id="focus" name="focus">
+            <option value="">Any</option>
+            <option value="anxiety">Anxiety & overthinking</option>
+            <option value="depression">Depression / low motivation</option>
+            <option value="stress">Stress & burnout</option>
+            <option value="relationships">Relationships / marriage</option>
+            <option value="addiction">Addiction / compulsive behaviors</option>
+            <option value="trauma">Trauma / past experiences</option>
+            <option value="identity">Identity, purpose, faith</option>
+          </select>
+        </label>
+
+        <label class="finder-field">
+          <span>Session type</span>
+          <select id="modality" name="modality">
+            <option value="any">Any</option>
+            <option value="in-person">In-person</option>
+            <option value="online">Online / Telehealth</option>
+          </select>
+        </label>
+
+        <label class="finder-field">
+          <span>Therapist preference (optional)</span>
+          <select id="gender" name="gender">
+            <option value="any">No preference</option>
+            <option value="male">Male therapist</option>
+            <option value="female">Female therapist</option>
+          </select>
+        </label>
+      </div>
+
+      <button type="submit" class="finder-submit">Find matches</button>
+      <p class="finder-note">
+        This is a guide, not a diagnosis or medical advice. You’re still in control of who you choose.
+      </p>
+    </form>
+
+    <section class="finder-results">
+      <h2>Suggested matches</h2>
+      <div id="therapist-summary" class="results-summary">
+        Fill out the form above and we’ll suggest therapists that fit what you’re looking for.
+      </div>
+      <div id="therapist-results" class="results-grid">
+        <!-- Cards will be injected here by JavaScript -->
+      </div>
+
+      <p class="finder-disclaimer">
+        <strong>Not a crisis service:</strong> If you are in immediate danger or thinking about hurting yourself,
+        please call or text <strong>988</strong> in the U.S., call <strong>911</strong>, or go to the nearest
+        emergency room. GRIT does not provide emergency or crisis care.
+      </p>
+    </section>
+  </section>
+</main>
+
+<script>
+// -------------------------
+// Simple mock therapist data
+// -------------------------
+const THERAPISTS = [
+  {
+    name: "Alex Carter, LCSW",
+    location: "Orem, UT",
+    zips: ["84057", "84058"],
+    focuses: ["anxiety", "depression", "stress"],
+    modalities: ["online", "in-person"],
+    gender: "male",
+    tagline: "Practical tools for anxiety, burnout, and low motivation.",
+    blurb: "Works a lot with men juggling work, family, and faith questions. Focus on simple habits and steady progress.",
+    website: "#"
+  },
+  {
+    name: "Jordan Reyes, CMHC",
+    location: "Lehi, UT",
+    zips: ["84043"],
+    focuses: ["relationships", "stress", "identity"],
+    modalities: ["online"],
+    gender: "male",
+    tagline: "Relationships, identity, and communication.",
+    blurb: "Helps men improve communication, emotional regulation, and sense of identity in relationships and family life.",
+    website: "#"
+  },
+  {
+    name: "Taylor Smith, PhD",
+    location: "Salt Lake City, UT",
+    zips: ["84101", "84102", "84103"],
+    focuses: ["depression", "trauma", "addiction"],
+    modalities: ["in-person", "online"],
+    gender: "female",
+    tagline: "Gentle but direct work on trauma, addiction, and shame.",
+    blurb: "Experience helping men process difficult past experiences and build a healthier story about themselves.",
+    website: "#"
+  },
+  {
+    name: "Chris Johnson, LMFT",
+    location: "Online (Utah residents)",
+    zips: [],
+    focuses: ["relationships", "anxiety", "identity", "faith"],
+    modalities: ["online"],
+    gender: "male",
+    tagline: "Marriage, faith, and identity questions.",
+    blurb: "Focus on men navigating marriage stress, faith transitions, and role overload. Sessions via secure video.",
+    website: "#"
+  },
+  {
+    name: "Morgan Lee, LCSW",
+    location: "Online (Multi-state)",
+    zips: [],
+    focuses: ["anxiety", "stress", "burnout"],
+    modalities: ["online"],
+    gender: "female",
+    tagline: "High-functioning but exhausted.",
+    blurb: "Works with men who look successful on the outside but feel fried on the inside. Tools for nervous system regulation and realistic habits.",
+    website: "#"
+  }
+];
+
+// -------------------------
+// Helper: match logic
+// -------------------------
+function matchesTherapist(t, filters) {
+  const loc = filters.location.trim().toLowerCase();
+  const focus = filters.focus;
+  const modality = filters.modality;
+  const gender = filters.gender;
+
+  // Location match: if blank, accept all.
+  let locationOk = true;
+  if (loc) {
+    const inCity = t.location.toLowerCase().includes(loc);
+    const inZips = (t.zips || []).some(z => loc.startsWith(z) || z.startsWith(loc));
+    locationOk = inCity || inZips;
+  }
+
+  // Focus match
+  const focusOk = !focus || (t.focuses || []).includes(focus);
+
+  // Modality match
+  const modalityOk = modality === "any" || (t.modalities || []).includes(modality);
+
+  // Gender match
+  const genderOk = gender === "any" || t.gender === gender;
+
+  return locationOk && focusOk && modalityOk && genderOk;
+}
+
+// -------------------------
+// Render results
+// -------------------------
+function renderTherapists(list, filters) {
+  const resultsEl = document.getElementById("therapist-results");
+  const summaryEl = document.getElementById("therapist-summary");
+
+  if (!resultsEl || !summaryEl) return;
+
+  resultsEl.innerHTML = "";
+
+  const hasFilters =
+    filters.location.trim() ||
+    filters.focus ||
+    filters.modality !== "any" ||
+    filters.gender !== "any";
+
+  if (!hasFilters) {
+    summaryEl.textContent =
+      "Fill out the form above and we’ll suggest therapists that fit what you’re looking for.";
+    return;
+  }
+
+  if (!list.length) {
+    summaryEl.textContent =
+      "We couldn’t find a strong match with these filters. Try widening your search (e.g., online sessions or no gender preference).";
+    resultsEl.innerHTML = "";
+    return;
+  }
+
+  summaryEl.innerHTML = `
+    Based on what you shared
+    ${filters.location ? ` (Location: <strong>${filters.location}</strong>)` : ""}
+    ${filters.focus ? ` (Focus: <strong>${filters.focus}</strong>)` : ""}
+    ${filters.modality !== "any" ? ` (Session type: <strong>${filters.modality}</strong>)` : ""}
+    ${filters.gender !== "any" ? ` (Therapist: <strong>${filters.gender}</strong>)` : ""},
+    here are some therapists who might be a good fit.
+  `;
+
+  list.forEach(t => {
+    const card = document.createElement("article");
+    card.className = "therapist-card";
+
+    card.innerHTML = `
+      <header class="therapist-header">
+        <h3>${t.name}</h3>
+        <p class="therapist-location">${t.location}</p>
+      </header>
+      <p class="therapist-tagline">${t.tagline}</p>
+      <p class="therapist-blurb">${t.blurb}</p>
+      <div class="therapist-meta">
+        <div class="meta-group">
+          <span class="meta-label">Focus areas:</span>
+          <div class="chip-row">
+            ${(t.focuses || [])
+              .map(f => `<span class="chip">${f}</span>`)
+              .join("")}
+          </div>
+        </div>
+        <div class="meta-group">
+          <span class="meta-label">Sessions:</span>
+          <div class="chip-row">
+            ${(t.modalities || [])
+              .map(m => `<span class="chip">${m}</span>`)
+              .join("")}
+          </div>
+        </div>
+      </div>
+      <div class="therapist-actions">
+        <a href="${t.website}" class="btn-link" target="_blank" rel="noopener">
+          View profile / contact
+        </a>
+      </div>
+    `;
+
+    resultsEl.appendChild(card);
+  });
+}
+
+// -------------------------
+// Form wiring
+// -------------------------
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("therapist-form");
+  if (!form) return;
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const filters = {
+      location: document.getElementById("location").value || "",
+      focus: document.getElementById("focus").value || "",
+      modality: document.getElementById("modality").value || "any",
+      gender: document.getElementById("gender").value || "any"
+    };
+
+    const matches = THERAPISTS.filter(t => matchesTherapist(t, filters));
+    renderTherapists(matches, filters);
+  });
+});
+</script>
   </main>
 
   <footer class="footer">
