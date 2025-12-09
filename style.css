@@ -281,3 +281,158 @@ a { color: inherit; text-decoration: none; }
     display: block;
   }
 }
+.pricing-page {
+  max-width: 1100px;
+  margin: 2rem auto 4rem;
+  padding: 0 1rem;
+}
+
+.pricing-intro {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.section-tagline {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+  opacity: 0.75;
+  margin-bottom: 0.5rem;
+}
+
+.section-subtitle {
+  max-width: 650px;
+  margin: 0.5rem auto 0;
+  opacity: 0.9;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.pricing-card {
+  border-radius: 0.75rem;
+  padding: 1.5rem 1.25rem;
+  background: #111823;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.45);
+  position: relative;
+}
+
+.tier-featured {
+  border-color: #ff6a00;
+  transform: translateY(-4px);
+}
+
+.tier-label {
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.8rem;
+  margin-bottom: 0.25rem;
+}
+
+.tier-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  padding: 0.25rem 0.5rem;
+  border-radius: 999px;
+  background: #ff6a00;
+  color: #000;
+}
+
+.tier-tagline {
+  margin: 0 0 0.75rem;
+  opacity: 0.9;
+}
+
+.tier-price {
+  margin: 0 0 0.75rem;
+}
+
+.price-main {
+  font-size: 2.1rem;
+  font-weight: 700;
+}
+
+.price-period {
+  margin-left: 0.25rem;
+  opacity: 0.75;
+}
+
+.tier-features {
+  list-style: none;
+  padding-left: 0;
+  margin: 0 0 1rem;
+}
+
+.tier-features li {
+  margin-bottom: 0.35rem;
+  font-size: 0.95rem;
+}
+
+.tier-cta {
+  width: 100%;
+  border: none;
+  border-radius: 999px;
+  padding: 0.6rem 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 0.5rem;
+}
+
+.tier-cta-primary {
+  background: #ff6a00;
+  color: #000;
+}
+
+.tier-note {
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+/* Comparison table */
+.pricing-compare {
+  margin-bottom: 3rem;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.comparison-table th,
+.comparison-table td {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 0.6rem 0.5rem;
+  text-align: center;
+}
+
+.comparison-table th:first-child,
+.comparison-table td:first-child {
+  text-align: left;
+}
+
+/* FAQ */
+.pricing-faq details {
+  margin-bottom: 0.75rem;
+  background: #10151f;
+  border-radius: 0.5rem;
+  padding: 0.6rem 0.75rem;
+}
+
+.pricing-faq summary {
+  cursor: pointer;
+  font-weight: 500;
+}
