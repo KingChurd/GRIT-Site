@@ -1332,3 +1332,124 @@ a { color: inherit; text-decoration: none; }
     top: -0.8rem;
   }
 }
+/* ---------------------------------------- */
+/* Pillar Pages – Product Style             */
+/* ---------------------------------------- */
+
+.pillar-page {
+  max-width: 950px;
+  margin: 2rem auto 4rem;
+  padding: 0 1rem;
+}
+
+.pillar-hero {
+  text-align: left;
+  margin-bottom: 2rem;
+}
+
+.pillar-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.75rem;
+}
+
+.pillar-chip {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+/* Accent colors per pillar */
+.pillar-chip-physical {
+  border-color: #00c2ff;
+  background: rgba(0, 194, 255, 0.12);
+}
+
+.pillar-chip-mental {
+  border-color: #ff6a00;
+  background: rgba(255, 106, 0, 0.12);
+}
+
+.pillar-chip-spiritual {
+  border-color: #91ffa4;
+  background: rgba(145, 255, 164, 0.12);
+}
+
+.pillar-mini-nav {
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+  opacity: 0.9;
+}
+
+.pillar-section {
+  margin-bottom: 2rem;
+}
+
+.pillar-two-col {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.pillar-list {
+  margin: 0;
+  padding-left: 1.1rem;
+  font-size: 0.95rem;
+}
+
+/* Cards for habits */
+
+.pillar-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.1rem;
+  margin-top: 0.75rem;
+}
+
+.pillar-card {
+  background: #101725;
+  border-radius: 0.9rem;
+  padding: 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: 0.9rem;
+}
+
+.pillar-card h3 {
+  margin-top: 0;
+  margin-bottom: 0.35rem;
+}
+
+/* Examples section */
+
+.pillar-examples-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+  margin-top: 0.75rem;
+}
+
+.pillar-example {
+  background: #10131f;
+  border-radius: 0.9rem;
+  padding: 0.85rem;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  font-size: 0.9rem;
+}
+
+.pillar-links {
+  margin: 0.3rem 0 0;
+  padding-left: 1.1rem;
+}
+
+/* Mobile tweaks */
+
+@media (max-width: 720px) {
+  .pillar-two-col {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
