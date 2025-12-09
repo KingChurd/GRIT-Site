@@ -15,3 +15,34 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+// ----------------------------------------
+// Scroll reveal for sections
+// ----------------------------------------
+document.addEventListener("DOMContentLoaded", () => {
+  const sections = document.querySelectorAll(
+    "main section, .static-page section"
+  );
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          // Once visible, we don't need to observe it again
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.15,
+    }
+  );
+
+  sections.forEach((section) => {
+    section.classList.add("reveal-section");
+    observer.observe(section);
+
+    // If you want staggered children in certain sections, you can
+    // add the "reveal-stagger" class in HTML later.
+  });
+});
