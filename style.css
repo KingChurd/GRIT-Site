@@ -26,7 +26,7 @@ body {
   color: var(--grit-text);
   background: radial-gradient(circle at top, #333843 0, #111217 55%);
   background-size: 200% 200%;
-  animation: gritBackground 18s ease-in-out infinite alternate;
+  animation: gritBackground 8s ease-in-out infinite alternate;
 }
 
 a {
