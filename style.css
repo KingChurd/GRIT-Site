@@ -889,3 +889,265 @@ a { color: inherit; text-decoration: none; }
 .pillar-links li {
   margin-bottom: 0.25rem;
 }
+/* ---------------------------------------- */
+/* Start Here                               */
+/* ---------------------------------------- */
+
+.start-page {
+  max-width: 950px;
+  margin: 2rem auto 4rem;
+  padding: 0 1rem;
+}
+
+.start-hero {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.start-section {
+  margin-bottom: 1.75rem;
+}
+
+.start-pillars {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-top: 0.75rem;
+}
+
+.start-pill-card {
+  border-radius: 0.8rem;
+  padding: 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  text-decoration: none;
+  display: block;
+}
+
+.start-pill-card h3 {
+  margin: 0 0 0.2rem;
+}
+
+.start-list {
+  margin: 0.5rem 0 0;
+  padding-left: 1.1rem;
+}
+
+/* ---------------------------------------- */
+/* FAQ                                      */
+/* ---------------------------------------- */
+
+.faq-page {
+  max-width: 900px;
+  margin: 2rem auto 4rem;
+  padding: 0 1rem;
+}
+
+.faq-hero {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.faq-list details {
+  margin-bottom: 0.75rem;
+  background: #10151f;
+  border-radius: 0.6rem;
+  padding: 0.6rem 0.8rem;
+}
+
+.faq-list summary {
+  cursor: pointer;
+  font-weight: 500;
+}
+
+/* ---------------------------------------- */
+/* Resources                                */
+/* ---------------------------------------- */
+
+.resources-page {
+  max-width: 900px;
+  margin: 2rem auto 4rem;
+  padding: 0 1rem;
+}
+
+.resources-hero {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.resources-section {
+  margin-bottom: 1.75rem;
+}
+
+.resources-list {
+  margin: 0.4rem 0 0;
+  padding-left: 1.1rem;
+}
+
+.resources-note {
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+/* ---------------------------------------- */
+/* Roadmap                                  */
+/* ---------------------------------------- */
+
+.roadmap-page {
+  max-width: 950px;
+  margin: 2rem auto 4rem;
+  padding: 0 1rem;
+}
+
+.roadmap-hero {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.roadmap-timeline {
+  display: grid;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.roadmap-item {
+  border-radius: 0.8rem;
+  padding: 0.9rem;
+  background: #101725;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.roadmap-timeframe {
+  font-size: 0.8rem;
+  opacity: 0.8;
+  margin: 0 0 0.4rem;
+}
+
+.roadmap-note {
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+/* ---------------------------------------- */
+/* Merch                                    */
+/* ---------------------------------------- */
+
+.shop-page {
+  max-width: 1000px;
+  margin: 2rem auto 4rem;
+  padding: 0 1rem;
+}
+
+.shop-hero {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.product-card {
+  background: #101725;
+  border-radius: 0.9rem;
+  padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.product-image-placeholder {
+  width: 100%;
+  height: 140px;
+  border-radius: 0.6rem;
+  border: 1px dashed rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  opacity: 0.75;
+  margin-bottom: 0.6rem;
+}
+
+.product-title {
+  margin: 0 0 0.2rem;
+}
+
+.product-desc {
+  margin: 0 0 0.2rem;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.product-meta {
+  margin: 0;
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+.shop-note {
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+/* ---------------------------------------- */
+/* Press                                    */
+/* ---------------------------------------- */
+
+.press-page {
+  max-width: 900px;
+  margin: 2rem auto 4rem;
+  padding: 0 1rem;
+}
+
+.press-hero {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.press-section {
+  margin-bottom: 1.75rem;
+}
+
+/* ---------------------------------------- */
+/* Stories                                  */
+/* ---------------------------------------- */
+
+.stories-page {
+  max-width: 900px;
+  margin: 2rem auto 4rem;
+  padding: 0 1rem;
+}
+
+.stories-hero {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.stories-grid {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.story-card {
+  background: #101725;
+  border-radius: 0.9rem;
+  padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.story-title {
+  margin: 0 0 0.2rem;
+}
+
+.story-tagline {
+  margin: 0 0 0.4rem;
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+.story-body {
+  margin: 0;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
