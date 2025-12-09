@@ -38,15 +38,196 @@
     </div>
   </header>
 
-  <main class="page-shell">
-    <div class="page-inner">
+ <main class="video-page">
+  <section class="video-hero">
+    <p class="section-tagline">Move. Breathe. Reset.</p>
+    <h1>GRIT Video Library</h1>
+    <p class="section-subtitle">
+      Short, actionable videos you can actually use in real life. Filter by pillar and length,
+      then hit play and get one step stronger.
+    </p>
+  </section>
 
-      <section class="section-padding">
-        <h1 class="page-title">Video Library</h1>
-        <p class="page-subtitle">Browse short, direct videos across the Mental, Physical, and Spiritual pillars.</p>
-      </section>
-
+  <!-- Filters -->
+  <section class="video-filters">
+    <div class="filter-group">
+      <span class="filter-label">Pillar</span>
+      <div class="filter-chips" id="pillar-filters">
+        <button data-pillar="all" class="chip chip-active">All</button>
+        <button data-pillar="physical" class="chip">Physical</button>
+        <button data-pillar="mental" class="chip">Mental</button>
+        <button data-pillar="spiritual" class="chip">Spiritual</button>
+      </div>
     </div>
+
+    <div class="filter-group">
+      <span class="filter-label">Length</span>
+      <div class="filter-chips" id="length-filters">
+        <button data-length="all" class="chip chip-active">Any</button>
+        <button data-length="short" class="chip">0–10 min</button>
+        <button data-length="medium" class="chip">10–25 min</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video grid -->
+  <section class="video-grid" id="video-grid">
+    <!-- Example cards – replace src with real files / YouTube embeds later -->
+
+    <!-- Physical -->
+    <article class="video-card" data-pillar="physical" data-length="short">
+      <div class="video-tag-row">
+        <span class="pill-tag pill-physical">Physical</span>
+        <span class="video-length">7 min</span>
+      </div>
+      <h2 class="video-title">7-Min Morning Strength Reset</h2>
+      <p class="video-desc">
+        No equipment. Simple movements to wake up your body and shake off stiffness.
+      </p>
+      <div class="video-media">
+        <video controls preload="metadata">
+          <source src="assets/videos/morning-strength.mp4" type="video/mp4" />
+          Your browser doesn’t support the video tag.
+        </video>
+      </div>
+    </article>
+
+    <article class="video-card" data-pillar="physical" data-length="medium">
+      <div class="video-tag-row">
+        <span class="pill-tag pill-physical">Physical</span>
+        <span class="video-length">18 min</span>
+      </div>
+      <h2 class="video-title">Strength Built Within – Core Session</h2>
+      <p class="video-desc">
+        A mid-length session focused on core, posture, and controlled breathing under tension.
+      </p>
+      <div class="video-media">
+        <video controls preload="metadata">
+          <source src="assets/videos/core-session.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </article>
+
+    <!-- Mental -->
+    <article class="video-card" data-pillar="mental" data-length="short">
+      <div class="video-tag-row">
+        <span class="pill-tag pill-mental">Mental</span>
+        <span class="video-length">5 min</span>
+      </div>
+      <h2 class="video-title">5-Minute Grounding Reset</h2>
+      <p class="video-desc">
+        Simple breathing + focus drill you can use before tough conversations, work, or parenting.
+      </p>
+      <div class="video-media">
+        <video controls preload="metadata">
+          <source src="assets/videos/grounding-reset.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </article>
+
+    <article class="video-card" data-pillar="mental" data-length="medium">
+      <div class="video-tag-row">
+        <span class="pill-tag pill-mental">Mental</span>
+        <span class="video-length">20 min</span>
+      </div>
+      <h2 class="video-title">Reframing Stress: From Overwhelm to Load-Bearing</h2>
+      <p class="video-desc">
+        A deeper session on how to think about stress in a way that builds, rather than breaks, you.
+      </p>
+      <div class="video-media">
+        <video controls preload="metadata">
+          <source src="assets/videos/reframing-stress.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </article>
+
+    <!-- Spiritual -->
+    <article class="video-card" data-pillar="spiritual" data-length="short">
+      <div class="video-tag-row">
+        <span class="pill-tag pill-spiritual">Spiritual</span>
+        <span class="video-length">8 min</span>
+      </div>
+      <h2 class="video-title">Identity Check-In: Who Am I Becoming?</h2>
+      <p class="video-desc">
+        A guided reflection to help you step back from the noise and reconnect with who you’re
+        choosing to be.
+      </p>
+      <div class="video-media">
+        <video controls preload="metadata">
+          <source src="assets/videos/identity-checkin.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </article>
+
+    <article class="video-card" data-pillar="spiritual" data-length="medium">
+      <div class="video-tag-row">
+        <span class="pill-tag pill-spiritual">Spiritual</span>
+        <span class="video-length">15 min</span>
+      </div>
+      <h2 class="video-title">Values, Faith, and Daily Decisions</h2>
+      <p class="video-desc">
+        Walk through a values exercise and how it actually plugs into small, daily choices.
+      </p>
+      <div class="video-media">
+        <video controls preload="metadata">
+          <source src="assets/videos/values-faith-decisions.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </article>
+  </section>
+
+  <section class="video-note">
+    <p>
+      More videos are coming. As GRIT grows, your membership will unlock deeper programs,
+      progressions, and live sessions that build on these basics.
+    </p>
+  </section>
+</main>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const grid = document.getElementById("video-grid");
+  const pillarButtons = document.querySelectorAll("#pillar-filters .chip");
+  const lengthButtons = document.querySelectorAll("#length-filters .chip");
+
+  let activePillar = "all";
+  let activeLength = "all";
+
+  function updateFilters() {
+    if (!grid) return;
+    const cards = grid.querySelectorAll(".video-card");
+
+    cards.forEach(card => {
+      const pillar = card.getAttribute("data-pillar");
+      const length = card.getAttribute("data-length");
+
+      const pillarOk = activePillar === "all" || pillar === activePillar;
+      const lengthOk = activeLength === "all" || length === activeLength;
+
+      card.style.display = pillarOk && lengthOk ? "" : "none";
+    });
+  }
+
+  pillarButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      pillarButtons.forEach(b => b.classList.remove("chip-active"));
+      btn.classList.add("chip-active");
+      activePillar = btn.getAttribute("data-pillar") || "all";
+      updateFilters();
+    });
+  });
+
+  lengthButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      lengthButtons.forEach(b => b.classList.remove("chip-active"));
+      btn.classList.add("chip-active");
+      activeLength = btn.getAttribute("data-length") || "all";
+      updateFilters();
+    });
+  });
+});
+</script>
+
   </main>
 
   <footer class="footer">
