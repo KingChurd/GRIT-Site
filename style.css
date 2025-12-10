@@ -64,16 +64,12 @@ body::before {
 
 /* Background orbs */
 .bg-orb {
-  /* whatever positioning you already have (position, width, height, etc.) */
-
-  /* ADD THESE: */
-  pointer-events: none;   /* don’t block clicks */
-  z-index: -1;            /* sit behind the content */
-}
   position: fixed;
   border-radius: 999px;
   filter: blur(16px);
   opacity: 0.18;
+
+  /* IMPORTANT so they don’t block clicks */
   z-index: -1;
   pointer-events: none;
 }
@@ -803,6 +799,85 @@ textarea:focus {
 }
 
 /* ===========================
+   Therapist Results Layout
+   =========================== */
+
+.results-wrapper {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.4fr);
+  gap: 1.75rem;
+  margin-top: 1.5rem;
+}
+
+.results-summary-card,
+.results-matches {
+  background: var(--grit-steel-mid);
+  border-radius: var(--radius-card);
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.65);
+}
+
+.summary-box {
+  margin-top: 0.75rem;
+  padding: 1rem 1.1rem;
+  border-radius: 10px;
+  background: var(--grit-steel-light);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.therapist-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.therapist-card {
+  background: radial-gradient(circle at top, rgba(255, 255, 255, 0.04), var(--grit-steel-mid));
+  border-radius: 12px;
+  padding: 1rem 1.1rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+.therapist-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  margin-bottom: 0.4rem;
+}
+
+.therapist-header h3 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.therapist-location {
+  font-size: 0.82rem;
+  color: var(--grit-text-muted);
+}
+
+.therapist-meta-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.therapist-meta {
+  font-size: 0.8rem;
+  color: var(--grit-text-muted);
+}
+
+.therapist-meta strong {
+  display: block;
+  color: var(--grit-text-main);
+  margin-bottom: 0.1rem;
+}
+
+/* ===========================
    Utility
    =========================== */
 
@@ -816,6 +891,7 @@ textarea:focus {
   border: 1px solid rgba(255, 255, 255, 0.18);
   color: var(--grit-text-muted);
 }
+
 /* ===========================
    Scroll Reveal
    =========================== */
@@ -862,6 +938,10 @@ textarea:focus {
   .grid-cards {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .results-wrapper {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }
 
 @media (max-width: 768px) {
@@ -895,7 +975,7 @@ textarea:focus {
     display: none;
   }
 
-  /* When burger is toggled */
+  /* When burger is toggled, script can add .nav-open to body */
   body.nav-open .nav-links {
     display: flex;
   }
@@ -916,6 +996,10 @@ textarea:focus {
   .pillars-grid,
   .pricing-grid,
   .grid-cards {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .therapist-meta-row {
     grid-template-columns: minmax(0, 1fr);
   }
 }
