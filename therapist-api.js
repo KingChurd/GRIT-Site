@@ -42,24 +42,35 @@ function extractZip(location) {
 async function fetchRealTherapists({ location, focus }) {
   const zip = extractZip(location);
   if (!zip) {
-    return { results: [], error: "Please include a 5-digit ZIP code in your location." };
+    return {
+      results: [],
+      error: "Please include a 5-digit ZIP code in your location.",
+    };
   }
 
   try {
-    const url = `${API_BASE}?zip=${encodeURIComponent(zip)}&focus=${encodeURIComponent(
-      focus || ""
-    )}`;
+    const url = `${API_BASE}?zip=${encodeURIComponent(
+      zip
+    )}&focus=${encodeURIComponent(focus || "")}`;
+
     const res = await fetch(url);
 
     if (!res.ok) {
-      return { results: [], error: "There was a problem contacting the therapist directory." };
+      // API responded but with an error status
+      return {
+        results: [],
+        error: "There was a problem contacting the therapist directory.",
+      };
     }
 
     const data = await res.json();
     return { results: data.results || [], error: null };
   } catch (err) {
-    console.error(err);
-    return { results: [], error: "Unexpected error. Please try again." };
+    console.error("Therapist fetch error:", err);
+    return {
+      results: [],
+      error: "Unexpected error. Please try again.",
+    };
   }
 }
 
@@ -79,8 +90,7 @@ function buildSummaryText({ location, focus, format, budget, preferences }) {
   if (budget !== "No preference")
     parts.push(`My budget per session is around ${budget}.`);
 
-  if (preferences)
-    parts.push(`Additional preferences: ${preferences}.`);
+  if (preferences) parts.push(`Additional preferences: ${preferences}.`);
 
   parts.push(
     "I want someone who understands the pressure men feel to provide, stay strong, and handle everything."
