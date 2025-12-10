@@ -1,14 +1,8 @@
 // therapist-api.js
 // Front-end for GRIT therapist finder using your Vercel NPI API
 
+// IMPORTANT: same-origin API for your GRIT-Site Vercel project
 const API_BASE = "/api/therapists";
-
-document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("therapist-form");
-  const button = document.getElementById("find-matches-btn");
-  const resultsSection = document.getElementById("therapist-results");
-  ...
-});
 
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("therapist-form");
@@ -45,6 +39,7 @@ function extractZip(location) {
   return match ? match[0] : null;
 }
 
+// 🔧 Updated to show real error messages and log details
 async function fetchRealTherapists({ location, focus }) {
   const zip = extractZip(location);
   if (!zip) {
@@ -59,23 +54,33 @@ async function fetchRealTherapists({ location, focus }) {
       zip
     )}&focus=${encodeURIComponent(focus || "")}`;
 
+    console.log("Calling therapist API:", url);
+
     const res = await fetch(url);
+
+    console.log("API response status:", res.status);
 
     if (!res.ok) {
       // API responded but with an error status
       return {
         results: [],
-        error: "There was a problem contacting the therapist directory.",
+        error:
+          "There was a problem contacting the therapist directory (status " +
+          res.status +
+          ").",
       };
     }
 
     const data = await res.json();
+    console.log("API JSON:", data);
     return { results: data.results || [], error: null };
   } catch (err) {
     console.error("Therapist fetch error:", err);
     return {
       results: [],
-      error: "Unexpected error. Please try again.",
+      error:
+        "Unexpected error: " +
+        (err && err.message ? err.message : "Please try again."),
     };
   }
 }
