@@ -2,247 +2,267 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>GRIT – Strength Built Within</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GRIT – Strength Built Within</title>
   <link rel="stylesheet" href="style.css" />
   <script defer src="script.js"></script>
 </head>
 <body>
-  <!-- NAVBAR -->
+  <!-- Animated Background Orbs -->
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+  <div class="bg-orb orb-3"></div>
+
+  <!-- Navbar -->
   <header class="navbar">
     <div class="nav-inner">
       <a href="index.html" class="brand">
         <span class="brand-logo">G</span>
         <span class="brand-text">
           <span class="brand-title">GRIT</span>
-          <span class="brand-tagline">Strength built within</span>
+          <span class="brand-tagline">Strength Built Within</span>
         </span>
       </a>
 
       <nav class="nav-links">
-        <a href="start-here.html">Start Here</a>
-        <a href="pillar-physical.html">Physical</a>
-        <a href="pillar-mental.html">Mental</a>
-        <a href="pillar-spiritual.html">Spiritual</a>
-        <a href="video-library.html">Videos</a>
-        <a href="blog.html">Articles</a>
-        <a href="therapists.html">Find a Therapist</a>
+        <a href="index.html" class="active">Home</a>
         <a href="pricing.html">Pricing</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
+        <a href="library.html">Library</a>
+        <a href="therapist.html">Find a Therapist</a>
       </nav>
 
-      <button class="nav-toggle" aria-label="Toggle navigation">
-        <span class="nav-toggle-bar"></span>
-        <span class="nav-toggle-bar"></span>
-        <span class="nav-toggle-bar"></span>
-      </button>
+      <div class="nav-cta">
+        <button class="btn btn-ghost">Log In</button>
+        <button class="btn btn-primary">Get Started</button>
+      </div>
     </div>
   </header>
 
-  <!-- MAIN -->
-  <main class="home-page">
-    <!-- HERO with video -->
-    <section class="home-hero">
-      <div class="home-hero-grid">
-        <div class="home-hero-text">
-          <p class="section-tagline">Strength built within.</p>
-          <h1>A space for men to build real strength</h1>
-          <p class="section-subtitle">
-            GRIT helps men build physical, mental, and spiritual strength in ways that fit real life —
-            school, work, family, faith, and everything in between. No hype. No perfection. Just
-            honest tools you can actually use.
-          </p>
-
-          <div class="hero-cta-row">
-            <a href="start-here.html" class="btn btn-primary">Start here</a>
-            <a href="video-library.html" class="btn btn-ghost">Explore videos</a>
-            <a href="therapists.html" class="btn-link">Find a therapist →</a>
-          </div>
-
-          <div class="home-pillars-chips">
-            <span class="chip">physical grit</span>
-            <span class="chip">mental grit</span>
-            <span class="chip">spiritual grit</span>
-          </div>
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-main">
+        <div class="hero-kicker">
+          <span class="hero-kicker-dot"></span>
+          Men’s Mental • Physical • Spiritual
         </div>
 
-        <!-- HERO MEDIA: replace the src with your own YouTube/embed later -->
-        <div class="home-hero-media">
-          <div class="hero-video-frame">
-            <!-- Placeholder YouTube embed – swap out VIDEO_ID with your own -->
-            <iframe
-              src="https://www.youtube.com/embed/2LhoCfjm8R4"
-              title="GRIT hero video"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            ></iframe>
-          </div>
-          <p class="media-note">
-            This is a placeholder hero video. Replace the YouTube link with your own GRIT intro or movement clip.
-          </p>
-        </div>
-      </div>
-    </section>
+        <h1 class="hero-title">
+          Strength built <span>within</span>, not just in the gym.
+        </h1>
 
-    <!-- WHAT GRIT HELPS YOU BUILD -->
-    <section class="home-section">
-      <h2>What GRIT helps you build</h2>
-      <p class="home-section-intro">
-        You don’t need another impossible routine or vague pep talk. GRIT gives you structure, language,
-        and small next steps across three pillars of strength.
-      </p>
-
-      <div class="home-pillars-grid">
-        <article class="home-pillars-card">
-          <h3>Physical GRIT</h3>
-          <p>Strength, energy, and recovery built for real schedules — not full-time athletes.</p>
-          <ul>
-            <li>Short, repeatable workouts</li>
-            <li>Movement that supports your energy</li>
-            <li>Basic recovery tools and sleep rhythms</li>
-          </ul>
-          <p class="home-pillars-link">
-            <a href="pillar-physical.html">Learn more about Physical GRIT →</a>
-          </p>
-        </article>
-
-        <article class="home-pillars-card">
-          <h3>Mental GRIT</h3>
-          <p>Clarity, emotional awareness, and tools for stress, anxiety, and overload.</p>
-          <ul>
-            <li>Grounding and breathing practices</li>
-            <li>Daily check-ins and reflection prompts</li>
-            <li>Skills for responding instead of reacting</li>
-          </ul>
-          <p class="home-pillars-link">
-            <a href="pillar-mental.html">Learn more about Mental GRIT →</a>
-          </p>
-        </article>
-
-        <article class="home-pillars-card">
-          <h3>Spiritual GRIT</h3>
-          <p>Identity, purpose, and integrity — who you’re becoming beneath the noise.</p>
-          <ul>
-            <li>Values-based decision making</li>
-            <li>Space to wrestle with faith and questions</li>
-            <li>Aligning your choices with what matters most</li>
-          </ul>
-          <p class="home-pillars-link">
-            <a href="pillar-spiritual.html">Learn more about Spiritual GRIT →</a>
-          </p>
-        </article>
-      </div>
-    </section>
-
-    <!-- FEATURED VIDEOS (thumbnails) -->
-    <section class="home-section">
-      <h2>Featured GRIT videos</h2>
-      <p class="home-section-intro">
-        A quick look at the kinds of videos inside GRIT — movement, breathwork, and mental reset tools
-        you can actually finish.
-      </p>
-
-      <div class="home-media-grid">
-        <!-- Card 1 -->
-        <article class="home-media-card">
-          <div class="home-media-thumb">
-            <img src="images/physical-session.jpg" alt="Short strength session" />
-          </div>
-          <h3>10-minute strength reset</h3>
-          <p>Low-barrier movement for days when you’re tired but still want to show up.</p>
-          <p class="home-media-meta">Physical • 10 min</p>
-        </article>
-
-        <!-- Card 2 -->
-        <article class="home-media-card">
-          <div class="home-media-thumb">
-            <img src="images/mental-breath.jpg" alt="Breathing practice" />
-          </div>
-          <h3>Box breathing for overload</h3>
-          <p>A slow guided breathing session to help you downshift after a heavy day.</p>
-          <p class="home-media-meta">Mental • 8 min</p>
-        </article>
-
-        <!-- Card 3 -->
-        <article class="home-media-card">
-          <div class="home-media-thumb">
-            <img src="images/spiritual-reflect.jpg" alt="Spiritual reflection" />
-          </div>
-          <h3>End-of-week reflection</h3>
-          <p>Questions to reconnect with your values, even when the week felt chaotic.</p>
-          <p class="home-media-meta">Spiritual • 12 min</p>
-        </article>
-      </div>
-
-      <p class="home-media-link">
-        <a href="video-library.html" class="btn-link">View the full GRIT video library →</a>
-      </p>
-    </section>
-
-    <!-- WHO IT'S FOR -->
-    <section class="home-section">
-      <h2>Who GRIT is for</h2>
-      <div class="home-two-col">
-        <p>
-          GRIT is for men who are done pretending everything is fine, but also don’t want to live in
-          constant crisis mode. Men who care about strength, responsibility, and integrity — even when
-          life feels heavy or confusing.
+        <p class="hero-subtitle">
+          GRIT is a holistic platform for men who want more than just another workout app.
+          Build a stronger body, clearer mind, and deeper purpose with guided content,
+          coaching, and community – all in one place.
         </p>
-        <ul>
-          <li>Men balancing school, work, family, and faith</li>
-          <li>Men who feel tired of “all or nothing” approaches</li>
-          <li>Men who want character and competence, not just aesthetics</li>
-          <li>Men who prefer honesty and practicality over hype</li>
-        </ul>
+
+        <div class="hero-actions">
+          <button class="btn btn-primary hero-btn">Start Free</button>
+          <button class="btn btn-ghost hero-btn">Watch How It Works</button>
+        </div>
+
+        <div class="hero-meta">
+          <span><strong>3 pillars</strong> • body, mind, spirit</span>
+          <span><strong>Library</strong> of videos & articles</span>
+          <span><strong>Therapist Finder</strong> built in</span>
+        </div>
+      </div>
+
+      <div class="hero-media">
+        <div class="hero-card">
+          <div class="hero-card-inner">
+            <!-- Replace src with your real video link if you have one -->
+            <video class="hero-video" autoplay muted loop playsinline>
+              <source src="hero-video.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="hero-floor-glow"></div>
+        </div>
       </div>
     </section>
 
-    <!-- WHAT GRIT IS / ISN'T -->
-    <section class="home-section home-section-alt">
-      <h2>What GRIT is — and what it isn’t</h2>
-      <p>
-        GRIT is a framework, a set of tools, and a collection of resources to help men grow. It’s here
-        to support your physical, mental, and spiritual strength — not to replace therapy, medical
-        care, or crisis services.
-      </p>
-      <ul>
-        <li>Not a licensed therapy or medical service</li>
-        <li>Not a crisis or emergency resource</li>
-        <li>Not about perfection or performance</li>
-      </ul>
-      <p class="note">
-        If you are in crisis or thinking about harming yourself: call or text <strong>988</strong> in
-        the U.S., contact your local emergency number (such as <strong>911</strong>), or go to the
-        nearest emergency room.
-      </p>
+    <!-- Three Pillars Section -->
+    <section>
+      <div class="section-header">
+        <div>
+          <div class="section-kicker">The GRIT Framework</div>
+          <div class="section-divider"></div>
+          <h2 class="section-title">
+            Built on <span>three pillars</span> of strength.
+          </h2>
+        </div>
+        <p class="section-subtitle">
+          Every part of GRIT is organized into Mental, Physical, and Spiritual tracks,
+          so you’re never guessing what to do next. Just follow the plan and stack small wins.
+        </p>
+      </div>
+
+      <div class="pillars-grid">
+        <!-- Mental -->
+        <article class="card">
+          <div class="card-label">Pillar 01</div>
+          <h3 class="card-title">Mental GRIT</h3>
+          <p class="card-tagline">
+            Tools to manage stress, anxiety, and emotional load without numbing out.
+          </p>
+          <ul class="card-list">
+            <li>
+              <span class="card-list-bullet"></span>
+              Guided journaling prompts & reflection exercises
+            </li>
+            <li>
+              <span class="card-list-bullet"></span>
+              Short lessons on emotional regulation & resilience
+            </li>
+            <li>
+              <span class="card-list-bullet"></span>
+              Strategies for building focus and follow-through
+            </li>
+          </ul>
+          <span class="chip">Featured: “Stress to Strength” series</span>
+        </article>
+
+        <!-- Physical -->
+        <article class="card">
+          <div class="card-label">Pillar 02</div>
+          <h3 class="card-title">Physical GRIT</h3>
+          <p class="card-tagline">
+            Training that respects sleep, recovery, and real life – not just max reps.
+          </p>
+          <ul class="card-list">
+            <li>
+              <span class="card-list-bullet"></span>
+              Strength, conditioning & mobility sessions by level
+            </li>
+            <li>
+              <span class="card-list-bullet"></span>
+              Recovery protocols and breathwork for busy schedules
+            </li>
+            <li>
+              <span class="card-list-bullet"></span>
+              Practical nutrition principles – no fad diets
+            </li>
+          </ul>
+          <span class="chip">Beginner–Advanced tracks included</span>
+        </article>
+
+        <!-- Spiritual -->
+        <article class="card">
+          <div class="card-label">Pillar 03</div>
+          <h3 class="card-title">Spiritual GRIT</h3>
+          <p class="card-tagline">
+            Quiet strength, deeper purpose, and alignment with your core values.
+          </p>
+          <ul class="card-list">
+            <li>
+              <span class="card-list-bullet"></span>
+              Values and purpose exercises to clarify your “why”
+            </li>
+            <li>
+              <span class="card-list-bullet"></span>
+              Reflection prompts around faith, meaning, and legacy
+            </li>
+            <li>
+              <span class="card-list-bullet"></span>
+              Practices for living congruent with what you say you believe
+            </li>
+          </ul>
+          <span class="chip">For men who want depth, not fluff</span>
+        </article>
+      </div>
     </section>
 
-    <!-- FINAL CTA -->
-    <section class="home-section home-cta-section">
-      <div class="home-cta-inner">
-        <h2>Ready to build strength from the inside out?</h2>
-        <p>
-          Start small. Pick one pillar. Try one video, read one article, or take one step toward
-          getting support. GRIT is here to help you keep moving.
-        </p>
-        <div class="hero-cta-row">
-          <a href="start-here.html" class="btn btn-primary">Start with a simple plan</a>
-          <a href="pricing.html" class="btn btn-ghost">Explore memberships</a>
+    <!-- Library Preview -->
+    <section>
+      <div class="section-header">
+        <div>
+          <div class="section-kicker">Content Library</div>
+          <div class="section-divider"></div>
+          <h2 class="section-title">
+            A growing library of <span>videos & articles</span>.
+          </h2>
         </div>
+        <p class="section-subtitle">
+          Tap into concise, research-backed content you can actually apply.
+          Filter by pillar, time, and intensity inside the full library.
+        </p>
+      </div>
+
+      <div class="grid-cards">
+        <article class="grid-card">
+          <div class="grid-tag">Mental • 12 min video</div>
+          <h3 class="grid-title">Rewiring the Stress Response</h3>
+          <p class="card-tagline">
+            Learn a simple three-step framework to move from panic to grounded action.
+          </p>
+          <div class="grid-meta">
+            <span>Skill level: Beginner</span>
+            <span>Save · Watch</span>
+          </div>
+        </article>
+
+        <article class="grid-card">
+          <div class="grid-tag">Physical • 20 min session</div>
+          <h3 class="grid-title">Foundations: Strength in 20 Minutes</h3>
+          <p class="card-tagline">
+            No-equipment workout focusing on compound moves you can do anywhere.
+          </p>
+          <div class="grid-meta">
+            <span>Skill level: All</span>
+            <span>Start · Add to Plan</span>
+          </div>
+        </article>
+
+        <article class="grid-card">
+          <div class="grid-tag">Spiritual • Article</div>
+          <h3 class="grid-title">Living in Line With Your Values</h3>
+          <p class="card-tagline">
+            A practical guide to aligning habits with what actually matters to you.
+          </p>
+          <div class="grid-meta">
+            <span>8 min read</span>
+            <span>Read • Save</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section>
+      <div class="section-header">
+        <div>
+          <div class="section-kicker">Start Today</div>
+          <div class="section-divider"></div>
+          <h2 class="section-title">
+            Choose your plan and <span>build your GRIT</span>.
+          </h2>
+        </div>
+        <p class="section-subtitle">
+          Start with the Starter plan or jump straight into Builder or Warrior.
+          You can upgrade anytime as you level up your life.
+        </p>
+      </div>
+
+      <div class="hero-actions">
+        <button class="btn btn-primary" onclick="window.location.href='pricing.html'">
+          View Plans
+        </button>
+        <button class="btn btn-ghost" onclick="window.location.href='therapist.html'">
+          Find a Therapist
+        </button>
       </div>
     </section>
   </main>
 
-  <!-- FOOTER -->
-  <footer class="site-footer">
+  <footer class="footer">
     <div class="footer-inner">
-      <p class="footer-brand">GRIT – Strength built within</p>
-      <nav class="footer-links">
+      <span>© 2025 GRIT. All rights reserved.</span>
+      <div class="footer-links">
         <a href="privacy.html">Privacy</a>
         <a href="terms.html">Terms</a>
-        <a href="contact.html">Contact</a>
-      </nav>
+      </div>
     </div>
   </footer>
 </body>
