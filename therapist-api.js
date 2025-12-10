@@ -1,8 +1,7 @@
 // therapist-api.js
 // Front-end for GRIT therapist finder using your Vercel NPI API
 
-const API_BASE =
-  "https://grit-therapist-6yvjk22jh-richard-palmers-projects-1ed185f9.vercel.app/api/therapists";
+const API_BASE = "/api/therapists";
 
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("therapist-form");
