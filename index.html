@@ -35,6 +35,7 @@
         <button class="btn btn-ghost">Log In</button>
         <button class="btn btn-primary">Get Started</button>
       </div>
+      <!-- .nav-toggle button will be injected here by script.js on mobile -->
     </div>
   </header>
 
@@ -48,7 +49,7 @@
         </div>
 
         <h1 class="hero-title">
-          Strength built <span>within</span>.
+          Strength built <span>within</span>, not just in the gym.
         </h1>
 
         <p class="hero-subtitle">
@@ -58,8 +59,12 @@
         </p>
 
         <div class="hero-actions">
-          <button class="btn btn-primary hero-btn">Start Free</button>
-          <button class="btn btn-ghost hero-btn">Watch How It Works</button>
+          <button class="btn btn-primary hero-btn" onclick="window.location.href='pricing.html'">
+            Start Free
+          </button>
+          <button class="btn btn-ghost hero-btn" onclick="document.querySelector('#library-preview')?.scrollIntoView({behavior:'smooth'})">
+            Watch How It Works
+          </button>
         </div>
 
         <div class="hero-meta">
@@ -72,7 +77,7 @@
       <div class="hero-media">
         <div class="hero-card">
           <div class="hero-card-inner">
-            <!-- Replace src with your real video link if you have one -->
+            <!-- Replace src with your real hero video file or URL -->
             <video class="hero-video" autoplay muted loop playsinline>
               <source src="hero-video.mp4" type="video/mp4" />
               Your browser does not support the video tag.
@@ -175,7 +180,7 @@
     </section>
 
     <!-- Library Preview -->
-    <section>
+    <section id="library-preview">
       <div class="section-header">
         <div>
           <div class="section-kicker">Content Library</div>
@@ -223,13 +228,13 @@
           </p>
           <div class="grid-meta">
             <span>8 min read</span>
-            <span>Read • Save</span>
+            <span>Read · Save</span>
           </div>
         </article>
       </div>
     </section>
 
-    <!-- CTA -->
+    <!-- CTA Section -->
     <section>
       <div class="section-header">
         <div>
