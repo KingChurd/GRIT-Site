@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GRIT – Strength Built Within</title>
   <link rel="manifest" href="manifest.webmanifest" />
-<meta name="theme-color" content="#ff6a00" />
+  <meta name="theme-color" content="#ff6a00" />
   <link rel="stylesheet" href="style.css" />
   <script defer src="script.js"></script>
 </head>
@@ -18,7 +18,7 @@
   <!-- Navbar -->
   <header class="navbar">
     <div class="nav-inner">
-      <a href="index.html" class="brand">
+      <a href="./index.html" class="brand">
         <span class="brand-logo">G</span>
         <span class="brand-text">
           <span class="brand-title">GRIT</span>
@@ -27,17 +27,16 @@
       </a>
 
       <nav class="nav-links">
-  <a href="./index.html" class="active">Home</a>
-  <a href="./pricing.html">Pricing</a>
-  <a href="./library.html">Library</a>
-  <a href="./therapist.html">Find a Therapist</a>
-</nav>
+        <a href="./index.html" class="active">Home</a>
+        <a href="./pricing.html">Pricing</a>
+        <a href="./library.html">Library</a>
+        <a href="./therapist.html">Find a Therapist</a>
+      </nav>
 
-<div class="nav-cta">
-  <a class="btn btn-ghost" href="./login.html">Log In</a>
-  <a class="btn btn-primary" href="./pricing.html">Get Started</a>
-</div>
-
+      <div class="nav-cta">
+        <a class="btn btn-ghost" href="./login.html">Log In</a>
+        <a class="btn btn-primary" href="./pricing.html">Get Started</a>
+      </div>
       <!-- .nav-toggle button will be injected here by script.js on mobile -->
     </div>
   </header>
@@ -62,17 +61,20 @@
         </p>
 
         <div class="hero-actions">
-          <button class="btn btn-primary hero-btn" onclick="window.location.href='pricing.html'">
+          <a class="btn btn-primary hero-btn" href="./pricing.html">
             Start Free
-          </button>
-          <button class="btn btn-ghost hero-btn" onclick="document.querySelector('#library-preview')?.scrollIntoView({behavior:'smooth'})">
+          </a>
+          <button
+            class="btn btn-ghost hero-btn"
+            onclick="document.querySelector('#library-preview')?.scrollIntoView({behavior:'smooth'})"
+          >
             Watch How It Works
           </button>
         </div>
 
         <div class="hero-meta">
           <span><strong>3 pillars</strong> • body, mind, spirit</span>
-          <span><strong>Library</strong> of videos & articles</span>
+          <span><strong>Library</strong> of videos &amp; articles</span>
           <span><strong>Therapist Finder</strong> built in</span>
         </div>
       </div>
@@ -118,11 +120,11 @@
           <ul class="card-list">
             <li>
               <span class="card-list-bullet"></span>
-              Guided journaling prompts & reflection exercises
+              Guided journaling prompts &amp; reflection exercises
             </li>
             <li>
               <span class="card-list-bullet"></span>
-              Short lessons on emotional regulation & resilience
+              Short lessons on emotional regulation &amp; resilience
             </li>
             <li>
               <span class="card-list-bullet"></span>
@@ -142,7 +144,7 @@
           <ul class="card-list">
             <li>
               <span class="card-list-bullet"></span>
-              Strength, conditioning & mobility sessions by level
+              Strength, conditioning &amp; mobility sessions by level
             </li>
             <li>
               <span class="card-list-bullet"></span>
@@ -166,8 +168,7 @@
           <ul class="card-list">
             <li>
               <span class="card-list-bullet"></span>
-              Values and purpose exercises to clarify your “why”
-            </li>
+              Values and purpose exercises to clarify your “why”</li>
             <li>
               <span class="card-list-bullet"></span>
               Reflection prompts around faith, meaning, and legacy
@@ -189,7 +190,7 @@
           <div class="section-kicker">Content Library</div>
           <div class="section-divider"></div>
           <h2 class="section-title">
-            A growing library of <span>videos & articles</span>.
+            A growing library of <span>videos &amp; articles</span>.
           </h2>
         </div>
         <p class="section-subtitle">
@@ -253,14 +254,14 @@
         </p>
       </div>
 
-        <div class="hero-actions">
-    <a class="btn btn-primary" href="./pricing.html">
-      View Plans
-    </a>
-    <a class="btn btn-ghost" href="./therapist.html">
-      Find a Therapist
-    </a>
-  </div>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="./pricing.html">
+          View Plans
+        </a>
+        <a class="btn btn-ghost" href="./therapist.html">
+          Find a Therapist
+        </a>
+      </div>
     </section>
   </main>
 
@@ -268,8 +269,8 @@
     <div class="footer-inner">
       <span>© 2025 GRIT. All rights reserved.</span>
       <div class="footer-links">
-        <a href="privacy.html">Privacy</a>
-        <a href="terms.html">Terms</a>
+        <a href="./privacy.html">Privacy</a>
+        <a href="./terms.html">Terms</a>
       </div>
     </div>
   </footer>
