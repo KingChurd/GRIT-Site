@@ -2,336 +2,164 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>GRIT – Find a Therapist</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Use this page to explore options for licensed mental health professionals in your area." />
+  <title>GRIT – Find a Therapist</title>
   <link rel="stylesheet" href="style.css" />
   <script defer src="script.js"></script>
 </head>
 <body>
+  <!-- Background Orbs -->
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+  <div class="bg-orb orb-3"></div>
+
+  <!-- Navbar (same as index.html, with Therapist active) -->
   <header class="navbar">
     <div class="nav-inner">
-      <a href="index.html" class="brand">
+      <a href="./index.html" class="brand">
         <span class="brand-logo">G</span>
         <span class="brand-text">
-          <span class="brand-main">GRIT</span>
+          <span class="brand-title">GRIT</span>
           <span class="brand-tagline">Strength Built Within</span>
         </span>
       </a>
+
       <nav class="nav-links">
-        <a href="index.html" class="nav-link">Home</a>
-        <a href="pricing.html" class="nav-link">Pricing</a>
-        <a href="therapists.html" class="nav-link">Find a Therapist</a>
-        <a href="blog.html" class="nav-link">Blog</a>
-        <a href="video-library.html" class="nav-link">Video Library</a>
-        <a href="about.html" class="nav-link">About</a>
-        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="./index.html">Home</a>
+        <a href="./pricing.html">Pricing</a>
+        <a href="./library.html">Library</a>
+        <a href="./therapist.html" class="active">Find a Therapist</a>
       </nav>
-      <div class="nav-auth">
-        <a href="login.html" class="nav-login">Log In</a>
-        <a href="signup.html" class="nav-signup">Join GRIT</a>
+
+      <div class="nav-cta">
+        <a class="btn btn-ghost" href="./login.html">Log In</a>
+        <a class="btn btn-primary" href="./pricing.html">Get Started</a>
       </div>
-      <button class="nav-toggle" aria-label="Toggle navigation">
-        <span class="nav-toggle-bar"></span>
-        <span class="nav-toggle-bar"></span>
-      </button>
+      <!-- nav-toggle injected by script.js on mobile -->
     </div>
   </header>
 
-  <main class="therapist-page">
-  <section class="finder-hero">
-    <p class="section-tagline">You don't have to figure this out alone.</p>
-    <h1>Find a Therapist Who Gets Men's Mental Health</h1>
-    <p class="section-subtitle">
-      GRIT helps you sort through options so you can find a therapist who fits your season of life,
-      your struggles, and your preferences. This is not therapy or crisis care – it’s a guide to good options.
-    </p>
-  </section>
-
-  <section class="finder-shell" data-therapist-finder>
-    <form id="therapist-form" class="finder-form">
-      <h2>Tell us what you’re looking for</h2>
-
-      <div class="finder-grid">
-        <label class="finder-field">
-          <span>Location (ZIP or City, State)</span>
-          <input
-            type="text"
-            id="location"
-            name="location"
-            placeholder="e.g., 84058 or Orem, UT"
-          />
-        </label>
-
-        <label class="finder-field">
-          <span>Main thing you want help with</span>
-          <select id="focus" name="focus">
-            <option value="">Any</option>
-            <option value="anxiety">Anxiety & overthinking</option>
-            <option value="depression">Depression / low motivation</option>
-            <option value="stress">Stress & burnout</option>
-            <option value="relationships">Relationships / marriage</option>
-            <option value="addiction">Addiction / compulsive behaviors</option>
-            <option value="trauma">Trauma / past experiences</option>
-            <option value="identity">Identity, purpose, faith</option>
-          </select>
-        </label>
-
-        <label class="finder-field">
-          <span>Session type</span>
-          <select id="modality" name="modality">
-            <option value="any">Any</option>
-            <option value="in-person">In-person</option>
-            <option value="online">Online / Telehealth</option>
-          </select>
-        </label>
-
-        <label class="finder-field">
-          <span>Therapist preference (optional)</span>
-          <select id="gender" name="gender">
-            <option value="any">No preference</option>
-            <option value="male">Male therapist</option>
-            <option value="female">Female therapist</option>
-          </select>
-        </label>
+  <main>
+    <!-- Header Section -->
+    <section>
+      <div class="section-header">
+        <div>
+          <div class="section-kicker">Therapist Finder</div>
+          <div class="section-divider"></div>
+          <h1 class="section-title">
+            Find a therapist who <span>gets men's mental health</span>.
+          </h1>
+        </div>
+        <p class="section-subtitle">
+          GRIT helps you sort through options so you can find a therapist who fits your
+          season of life, your struggles, and your preferences. This isn’t therapy or
+          crisis care – it’s a guide to better conversations and better matches.
+        </p>
       </div>
-
-      <button type="submit" class="finder-submit">Find matches</button>
-      <p class="finder-note">
-        This is a guide, not a diagnosis or medical advice. You’re still in control of who you choose.
-      </p>
-    </form>
-
-    <section class="finder-results">
-      <h2>Suggested matches</h2>
-      <div id="therapist-summary" class="results-summary">
-        Fill out the form above and we’ll suggest therapists that fit what you’re looking for.
-      </div>
-      <div id="therapist-results" class="results-grid">
-        <!-- Cards will be injected here by JavaScript -->
-      </div>
-
-      <p class="finder-disclaimer">
-        <strong>Not a crisis service:</strong> If you are in immediate danger or thinking about hurting yourself,
-        please call or text <strong>988</strong> in the U.S., call <strong>911</strong>, or go to the nearest
-        emergency room. GRIT does not provide emergency or crisis care.
-      </p>
     </section>
-  </section>
-</main>
 
-<script>
-// -------------------------
-// Simple mock therapist data
-// -------------------------
-const THERAPISTS = [
-  {
-    name: "Alex Carter, LCSW",
-    location: "Orem, UT",
-    zips: ["84057", "84058"],
-    focuses: ["anxiety", "depression", "stress"],
-    modalities: ["online", "in-person"],
-    gender: "male",
-    tagline: "Practical tools for anxiety, burnout, and low motivation.",
-    blurb: "Works a lot with men juggling work, family, and faith questions. Focus on simple habits and steady progress.",
-    website: "#"
-  },
-  {
-    name: "Jordan Reyes, CMHC",
-    location: "Lehi, UT",
-    zips: ["84043"],
-    focuses: ["relationships", "stress", "identity"],
-    modalities: ["online"],
-    gender: "male",
-    tagline: "Relationships, identity, and communication.",
-    blurb: "Helps men improve communication, emotional regulation, and sense of identity in relationships and family life.",
-    website: "#"
-  },
-  {
-    name: "Taylor Smith, PhD",
-    location: "Salt Lake City, UT",
-    zips: ["84101", "84102", "84103"],
-    focuses: ["depression", "trauma", "addiction"],
-    modalities: ["in-person", "online"],
-    gender: "female",
-    tagline: "Gentle but direct work on trauma, addiction, and shame.",
-    blurb: "Experience helping men process difficult past experiences and build a healthier story about themselves.",
-    website: "#"
-  },
-  {
-    name: "Chris Johnson, LMFT",
-    location: "Online (Utah residents)",
-    zips: [],
-    focuses: ["relationships", "anxiety", "identity", "faith"],
-    modalities: ["online"],
-    gender: "male",
-    tagline: "Marriage, faith, and identity questions.",
-    blurb: "Focus on men navigating marriage stress, faith transitions, and role overload. Sessions via secure video.",
-    website: "#"
-  },
-  {
-    name: "Morgan Lee, LCSW",
-    location: "Online (Multi-state)",
-    zips: [],
-    focuses: ["anxiety", "stress", "burnout"],
-    modalities: ["online"],
-    gender: "female",
-    tagline: "High-functioning but exhausted.",
-    blurb: "Works with men who look successful on the outside but feel fried on the inside. Tools for nervous system regulation and realistic habits.",
-    website: "#"
-  }
-];
+    <!-- Form Section -->
+    <section>
+      <div class="card" style="padding:2rem;">
+        <div class="card-label">Step 1</div>
+        <h2 class="card-title">Tell us what you’re looking for</h2>
+        <p class="card-tagline">
+          Answer a few quick questions. We’ll turn this into a simple summary you can
+          use when you search online or reach out to a therapist.
+        </p>
 
-// -------------------------
-// Helper: match logic
-// -------------------------
-function matchesTherapist(t, filters) {
-  const loc = filters.location.trim().toLowerCase();
-  const focus = filters.focus;
-  const modality = filters.modality;
-  const gender = filters.gender;
-
-  // Location match: if blank, accept all.
-  let locationOk = true;
-  if (loc) {
-    const inCity = t.location.toLowerCase().includes(loc);
-    const inZips = (t.zips || []).some(z => loc.startsWith(z) || z.startsWith(loc));
-    locationOk = inCity || inZips;
-  }
-
-  // Focus match
-  const focusOk = !focus || (t.focuses || []).includes(focus);
-
-  // Modality match
-  const modalityOk = modality === "any" || (t.modalities || []).includes(modality);
-
-  // Gender match
-  const genderOk = gender === "any" || t.gender === gender;
-
-  return locationOk && focusOk && modalityOk && genderOk;
-}
-
-// -------------------------
-// Render results
-// -------------------------
-function renderTherapists(list, filters) {
-  const resultsEl = document.getElementById("therapist-results");
-  const summaryEl = document.getElementById("therapist-summary");
-
-  if (!resultsEl || !summaryEl) return;
-
-  resultsEl.innerHTML = "";
-
-  const hasFilters =
-    filters.location.trim() ||
-    filters.focus ||
-    filters.modality !== "any" ||
-    filters.gender !== "any";
-
-  if (!hasFilters) {
-    summaryEl.textContent =
-      "Fill out the form above and we’ll suggest therapists that fit what you’re looking for.";
-    return;
-  }
-
-  if (!list.length) {
-    summaryEl.textContent =
-      "We couldn’t find a strong match with these filters. Try widening your search (e.g., online sessions or no gender preference).";
-    resultsEl.innerHTML = "";
-    return;
-  }
-
-  summaryEl.innerHTML = `
-    Based on what you shared
-    ${filters.location ? ` (Location: <strong>${filters.location}</strong>)` : ""}
-    ${filters.focus ? ` (Focus: <strong>${filters.focus}</strong>)` : ""}
-    ${filters.modality !== "any" ? ` (Session type: <strong>${filters.modality}</strong>)` : ""}
-    ${filters.gender !== "any" ? ` (Therapist: <strong>${filters.gender}</strong>)` : ""},
-    here are some therapists who might be a good fit.
-  `;
-
-  list.forEach(t => {
-    const card = document.createElement("article");
-    card.className = "therapist-card";
-
-    card.innerHTML = `
-      <header class="therapist-header">
-        <h3>${t.name}</h3>
-        <p class="therapist-location">${t.location}</p>
-      </header>
-      <p class="therapist-tagline">${t.tagline}</p>
-      <p class="therapist-blurb">${t.blurb}</p>
-      <div class="therapist-meta">
-        <div class="meta-group">
-          <span class="meta-label">Focus areas:</span>
-          <div class="chip-row">
-            ${(t.focuses || [])
-              .map(f => `<span class="chip">${f}</span>`)
-              .join("")}
+        <form id="therapist-form">
+          <div class="input-row">
+            <div class="input-field">
+              <label for="location">Location (ZIP or city, state)</label>
+              <input
+                type="text"
+                id="location"
+                placeholder="e.g., 84058 or Orem, UT"
+              />
+            </div>
           </div>
-        </div>
-        <div class="meta-group">
-          <span class="meta-label">Sessions:</span>
-          <div class="chip-row">
-            ${(t.modalities || [])
-              .map(m => `<span class="chip">${m}</span>`)
-              .join("")}
+
+          <div class="input-row">
+            <div class="input-field">
+              <label for="focus">Main thing you want help with</label>
+              <select id="focus">
+                <option value="">Not sure / general support</option>
+                <option>Anxiety or stress</option>
+                <option>Depression or low mood</option>
+                <option>Marriage / relationship challenges</option>
+                <option>Addiction or habits</option>
+                <option>Trauma or past experiences</option>
+                <option>Faith / spiritual questions</option>
+              </select>
+            </div>
+
+            <div class="input-field">
+              <label for="format">Session type</label>
+              <select id="format">
+                <option>Any</option>
+                <option>In-person</option>
+                <option>Online / telehealth</option>
+              </select>
+            </div>
           </div>
-        </div>
+
+          <div class="input-row">
+            <div class="input-field">
+              <label for="budget">Budget per session</label>
+              <select id="budget">
+                <option>No preference</option>
+                <option>Under $75</option>
+                <option>$75–$125</option>
+                <option>$125–$175</option>
+                <option>$175+</option>
+              </select>
+            </div>
+
+            <div class="input-field">
+              <label for="preferences">Therapist preference (optional)</label>
+              <input
+                type="text"
+                id="preferences"
+                placeholder="e.g., male therapist, faith-based, EMDR, etc."
+              />
+            </div>
+          </div>
+
+          <button
+            type="button"
+            class="btn btn-primary"
+            style="margin-top:1rem;"
+          >
+            Find Matches
+          </button>
+        </form>
       </div>
-      <div class="therapist-actions">
-        <a href="${t.website}" class="btn-link" target="_blank" rel="noopener">
-          View profile / contact
+    </section>
+
+    <!-- Results section will be injected by script.js -->
+    <section id="therapist-results"></section>
+
+    <!-- CTA -->
+    <section>
+      <div class="hero-actions">
+        <a class="btn btn-ghost" href="./library.html">
+          Explore Content
+        </a>
+        <a class="btn btn-primary" href="./pricing.html">
+          See Plans
         </a>
       </div>
-    `;
-
-    resultsEl.appendChild(card);
-  });
-}
-
-// -------------------------
-// Form wiring
-// -------------------------
-document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("therapist-form");
-  if (!form) return;
-
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-
-    const filters = {
-      location: document.getElementById("location").value || "",
-      focus: document.getElementById("focus").value || "",
-      modality: document.getElementById("modality").value || "any",
-      gender: document.getElementById("gender").value || "any"
-    };
-
-    const matches = THERAPISTS.filter(t => matchesTherapist(t, filters));
-    renderTherapists(matches, filters);
-  });
-});
-</script>
+    </section>
   </main>
 
   <footer class="footer">
     <div class="footer-inner">
-      <div class="footer-brand">
-        <span class="brand-logo-small">G</span>
-        <div class="footer-brand-text">
-          <span class="footer-brand-main">GRIT</span>
-          <span class="footer-brand-tagline">Strength Built Within</span>
-        </div>
-      </div>
+      <span>© 2025 GRIT. All rights reserved.</span>
       <div class="footer-links">
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-        <a href="privacy.html">Privacy</a>
-        <a href="terms.html">Terms</a>
+        <a href="./privacy.html">Privacy</a>
+        <a href="./terms.html">Terms</a>
       </div>
-      <p class="footer-copy">
-        &copy; <span id="footer-year"></span> GRIT. All rights reserved.
-      </p>
     </div>
   </footer>
 </body>
