@@ -26,7 +26,7 @@ body {
   color: var(--grit-text);
   background: radial-gradient(circle at top, #333843 0, #111217 55%);
   background-size: 200% 200%;
-  animation: gritBackground 8s ease-in-out infinite alternate;
+  animation: gritBackground 8s ease-in-out infinite alternate; /* make it visible; you can change back to 18s later */
 }
 
 a {
@@ -40,11 +40,11 @@ video {
   display: block;
 }
 
-/* Generic page containers */
-
 main {
   min-height: 60vh;
 }
+
+/* Shared page shells */
 
 .home-page,
 .therapist-page,
@@ -65,8 +65,6 @@ main {
   margin: 2rem auto 4rem;
   padding: 0 1.25rem;
 }
-
-/* Headings / text */
 
 h1,
 h2,
@@ -127,7 +125,7 @@ h4 {
   width: 2rem;
   height: 2rem;
   border-radius: 0.75rem;
-  background: linear-gradient(135deg, var(--grit-orange), #ffb347);
+  background: linear-gradient(135deg, var(--grit-orange), var(--grit-orange-soft));
   color: #111217;
   font-weight: 700;
 }
@@ -231,7 +229,7 @@ h4 {
 }
 
 /* ---------------------------------------- */
-/* BUTTONS                                  */
+/* BUTTONS & CHIPS                          */
 /* ---------------------------------------- */
 
 .btn {
@@ -246,7 +244,7 @@ h4 {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--grit-orange), #ffb347);
+  background: linear-gradient(135deg, var(--grit-orange), var(--grit-orange-soft));
   color: #111217;
   border-color: rgba(0, 0, 0, 0.6);
   transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease,
@@ -288,8 +286,6 @@ h4 {
   background: rgba(255, 255, 255, 0.08);
 }
 
-/* Chip */
-
 .chip {
   border-radius: 999px;
   border: 1px solid rgba(255, 255, 255, 0.35);
@@ -312,8 +308,13 @@ h4 {
 
 .home-hero {
   padding: 3.5rem 0 2.5rem;
-  display: flex;
-  justify-content: center;
+}
+
+.home-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: 2rem;
+  align-items: center;
 }
 
 .home-hero-text {
@@ -323,10 +324,6 @@ h4 {
 .home-hero h1 {
   font-size: 2.6rem;
   margin-bottom: 0.75rem;
-}
-
-.home-hero .section-subtitle {
-  margin-top: 0.5rem;
 }
 
 .hero-cta-row {
@@ -342,6 +339,40 @@ h4 {
   gap: 0.4rem;
 }
 
+/* Hero media (video) */
+
+.home-hero-media {
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.hero-video-frame {
+  position: relative;
+  padding-top: 56.25%; /* 16:9 */
+  border-radius: 0.9rem;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.6);
+}
+
+.hero-video-frame iframe,
+.hero-video-frame video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.media-note {
+  font-size: 0.8rem;
+  opacity: 0.8;
+  margin-top: 0.5rem;
+}
+
+/* Sections */
+
 .home-section {
   margin-top: 2.5rem;
   margin-bottom: 2.25rem;
@@ -354,6 +385,8 @@ h4 {
 .home-section-intro {
   margin-bottom: 1.25rem;
 }
+
+/* Pillar & feature cards */
 
 .home-pillars-grid,
 .home-features-grid {
@@ -392,6 +425,56 @@ h4 {
   margin-top: 0.4rem;
   font-size: 0.85rem;
 }
+
+/* Featured media thumbnails on home */
+
+.home-media-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1rem;
+}
+
+.home-media-card {
+  background: #101725;
+  border-radius: 0.9rem;
+  padding: 0.85rem;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  font-size: 0.9rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease,
+    border-color 0.2s ease, background 0.2s ease;
+}
+
+.home-media-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.55);
+  border-color: rgba(255, 106, 0, 0.55);
+  background: #151b29;
+}
+
+.home-media-thumb {
+  border-radius: 0.7rem;
+  overflow: hidden;
+  margin-bottom: 0.55rem;
+}
+
+.home-media-thumb img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  display: block;
+}
+
+.home-media-meta {
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+.home-media-link {
+  margin-top: 1rem;
+}
+
+/* Who it's for, etc. */
 
 .home-two-col {
   display: grid;
@@ -434,13 +517,19 @@ h4 {
   margin: 0.5rem auto 1.2rem;
 }
 
-/* Mobile layout for home */
+/* Home responsive tweaks */
 
-@media (max-width: 720px) {
+@media (max-width: 900px) {
+  .home-hero-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
   .home-hero {
     padding-top: 2.5rem;
   }
+}
 
+@media (max-width: 720px) {
   .home-two-col {
     grid-template-columns: minmax(0, 1fr);
   }
@@ -678,6 +767,7 @@ h4 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 1rem;
+  margin-bottom: 1rem;
 }
 
 .therapist-card {
@@ -958,7 +1048,6 @@ h4 {
 }
 
 .resources-section,
-.roadmap-timeline,
 .press-section {
   margin-bottom: 1.75rem;
 }
@@ -985,6 +1074,7 @@ h4 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1.25rem;
+  margin-bottom: 1.5rem;
 }
 
 .product-card {
@@ -1039,6 +1129,16 @@ h4 {
 
 .about-section {
   margin-bottom: 2.25rem;
+}
+
+.about-section h2 {
+  margin-bottom: 0.6rem;
+}
+
+.about-section-intro {
+  font-size: 0.95rem;
+  opacity: 0.9;
+  margin-bottom: 1rem;
 }
 
 .about-two-col {
@@ -1170,6 +1270,14 @@ h4 {
 @media (max-width: 700px) {
   .about-two-col {
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  .pillar-card {
+    padding-top: 1.4rem;
+  }
+
+  .pillar-icon {
+    top: -0.8rem;
   }
 }
 
