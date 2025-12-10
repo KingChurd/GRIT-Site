@@ -79,8 +79,8 @@ async function fetchRealTherapists({ location, focus }) {
     return {
       results: [],
       error:
-        "Unexpected error: " +
-        (err && err.message ? err.message : "Please try again."),
+  "GRIT DEBUG – Unexpected error: " +
+  (err && err.message ? err.message : "Please try again."),
     };
   }
 }
