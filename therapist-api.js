@@ -7,6 +7,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("therapist-form");
   const button = document.getElementById("find-matches-btn");
   const resultsSection = document.getElementById("therapist-results");
+  ...
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("therapist-form");
+  const button = document.getElementById("find-matches-btn");
+  const resultsSection = document.getElementById("therapist-results");
 
   if (!form || !button || !resultsSection) return;
 
