@@ -61,6 +61,13 @@ body::before {
   z-index: -2;
   animation: bgDrift 40s linear infinite;
 }
+/* Make all decorative layers ignore mouse/keyboard events */
+body::before,
+.bg-orb,
+.hero-floor-glow,
+.card::before {
+  pointer-events: none;
+}
 
 /* Background orbs */
 .bg-orb {
