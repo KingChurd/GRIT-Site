@@ -64,6 +64,12 @@ body::before {
 
 /* Background orbs */
 .bg-orb {
+  /* whatever positioning you already have (position, width, height, etc.) */
+
+  /* ADD THESE: */
+  pointer-events: none;   /* don’t block clicks */
+  z-index: -1;            /* sit behind the content */
+}
   position: fixed;
   border-radius: 999px;
   filter: blur(16px);
