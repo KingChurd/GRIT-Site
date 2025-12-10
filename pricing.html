@@ -2,243 +2,217 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>GRIT – Pricing & Membership</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Choose the GRIT tier that fits your season and the level of support you want." />
+  <title>GRIT – Pricing</title>
   <link rel="stylesheet" href="style.css" />
   <script defer src="script.js"></script>
 </head>
 <body>
+  <!-- Animated Background Orbs -->
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+  <div class="bg-orb orb-3"></div>
+
+  <!-- Navbar -->
   <header class="navbar">
     <div class="nav-inner">
       <a href="index.html" class="brand">
         <span class="brand-logo">G</span>
         <span class="brand-text">
-          <span class="brand-main">GRIT</span>
+          <span class="brand-title">GRIT</span>
           <span class="brand-tagline">Strength Built Within</span>
         </span>
       </a>
+
       <nav class="nav-links">
-        <a href="index.html" class="nav-link">Home</a>
-        <a href="pricing.html" class="nav-link">Pricing</a>
-        <a href="therapists.html" class="nav-link">Find a Therapist</a>
-        <a href="blog.html" class="nav-link">Blog</a>
-        <a href="video-library.html" class="nav-link">Video Library</a>
-        <a href="about.html" class="nav-link">About</a>
-        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="index.html">Home</a>
+        <a href="pricing.html" class="active">Pricing</a>
+        <a href="library.html">Library</a>
+        <a href="therapist.html">Find a Therapist</a>
       </nav>
-      <div class="nav-auth">
-        <a href="login.html" class="nav-login">Log In</a>
-        <a href="signup.html" class="nav-signup">Join GRIT</a>
+
+      <div class="nav-cta">
+        <button class="btn btn-ghost">Log In</button>
+        <button class="btn btn-primary">Get Started</button>
       </div>
-      <button class="nav-toggle" aria-label="Toggle navigation">
-        <span class="nav-toggle-bar"></span>
-        <span class="nav-toggle-bar"></span>
-      </button>
     </div>
   </header>
 
-  <main class="page-shell">
-    <div class="page-inner">
+  <main>
+    <!-- Pricing Header -->
+    <section>
+      <div class="section-header">
+        <div>
+          <div class="section-kicker">Plans & Pricing</div>
+          <div class="section-divider"></div>
+          <h1 class="section-title">
+            Three tiers. One <span>mission</span>: build your GRIT.
+          </h1>
+        </div>
+        <p class="section-subtitle">
+          All plans include access to the Mental, Physical, and Spiritual pillars plus the
+          therapist finder. Upgrade as you grow – not because you’re locked in.
+        </p>
+      </div>
+    </section>
 
-      <section class="section-padding">
-        <h1 class="page-title">Pricing & Membership</h1>
-        <p class="page-subtitle">Choose the GRIT tier that fits your season and the level of support you want.</p>
-        <main class="pricing-page">
-  <section class="pricing-intro">
-    <p class="section-tagline">Memberships for real life, not perfection.</p>
-    <h2>Choose your GRIT tier</h2>
-    <p class="section-subtitle">
-      All memberships include access to the GRIT library of videos and articles, plus the
-      Find a Therapist tool. Choose the level of coaching and support that fits your current season.
-    </p>
-  </section>
+    <!-- Pricing Grid -->
+    <section>
+      <div class="pricing-grid">
+        <!-- Starter -->
+        <article class="price-card">
+          <div class="price-name">Starter</div>
+          <div class="price-amount">
+            $9<span>/month</span>
+          </div>
+          <p class="price-desc">
+            Get started with the foundations of GRIT. Ideal if you’re just beginning
+            your mental, physical, and spiritual reset.
+          </p>
 
-  <section class="pricing-grid">
-    <!-- Starter -->
-    <article class="pricing-card">
-      <div class="tier-label">Starter</div>
-      <p class="tier-tagline">Build basic momentum.</p>
-      <p class="tier-price">
-        <span class="price-main">$15</span><span class="price-period">/month</span>
-      </p>
-      <ul class="tier-features">
-        <li>Full access to GRIT video + article library</li>
-        <li>Access to Find a Therapist tool</li>
-        <li>Physical, mental, and spiritual starter routines</li>
-        <li>Monthly reflection + reset prompts</li>
-      </ul>
-      <button class="tier-cta">Join Starter</button>
-      <p class="tier-note">Best for men just getting started or on a tight budget.</p>
-    </article>
+          <ul class="price-list">
+            <li>
+              <span class="price-check">✓</span>
+              Full access to all three GRIT pillars (Mental, Physical, Spiritual)
+            </li>
+            <li>
+              <span class="price-check">✓</span>
+              Beginner-level workout & mindset tracks
+            </li>
+            <li>
+              <span class="price-check">✓</span>
+              Core video & article library
+            </li>
+            <li>
+              <span class="price-check">✓</span>
+              Access to therapist finder feature
+            </li>
+            <li>
+              <span class="price-check">–</span>
+              No live group coaching calls
+            </li>
+          </ul>
 
-    <!-- Builder (Most Popular) -->
-    <article class="pricing-card tier-featured">
-      <div class="tier-label">Builder</div>
-      <div class="tier-badge">Most Popular</div>
-      <p class="tier-tagline">Systems and accountability.</p>
-      <p class="tier-price">
-        <span class="price-main">$29</span><span class="price-period">/month</span>
-      </p>
-      <ul class="tier-features">
-        <li>Everything in Starter</li>
-        <li>Weekly GRIT challenges (physical, mental, spiritual)</li>
-        <li>Habit & progress tracking templates</li>
-        <li>Access to members-only live Q&A sessions</li>
-        <li>Downloadable worksheets & routines</li>
-      </ul>
-      <button class="tier-cta tier-cta-primary">Join Builder</button>
-      <p class="tier-note">Best for men who want real structure and consistency.</p>
-    </article>
+          <button class="btn btn-primary" style="width:100%;">
+            Choose Starter
+          </button>
+        </article>
 
-    <!-- Warrior -->
-    <article class="pricing-card">
-      <div class="tier-label">Warrior</div>
-      <p class="tier-tagline">High support, high accountability.</p>
-      <p class="tier-price">
-        <span class="price-main">$59</span><span class="price-period">/month</span>
-      </p>
-      <ul class="tier-features">
-        <li>Everything in Builder</li>
-        <li>Weekly group coaching calls</li>
-        <li>Priority access to workshops & events</li>
-        <li>Deeper identity + values work modules</li>
-        <li>Early access to new GRIT tools and features</li>
-      </ul>
-      <button class="tier-cta">Join Warrior</button>
-      <p class="tier-note">Best for men ready to go all-in on growth.</p>
-    </article>
-  </section>
+        <!-- Builder -->
+        <article class="price-card recommended">
+          <div class="price-badge">Most Popular</div>
+          <div class="price-name">Builder</div>
+          <div class="price-amount">
+            $19<span>/month</span>
+          </div>
+          <p class="price-desc">
+            For men ready to consistently build strength, resilience, and purpose.
+            More depth, more structure, more accountability.
+          </p>
 
-  <!-- Comparison table -->
-  <section class="pricing-compare">
-    <h3>Compare the tiers</h3>
-    <div class="table-wrapper">
-      <table class="comparison-table">
-        <thead>
-          <tr>
-            <th>Feature</th>
-            <th>Starter</th>
-            <th>Builder</th>
-            <th>Warrior</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Video + article library</td>
-            <td>✔️</td>
-            <td>✔️</td>
-            <td>✔️</td>
-          </tr>
-          <tr>
-            <td>Find a Therapist tool</td>
-            <td>✔️</td>
-            <td>✔️</td>
-            <td>✔️</td>
-          </tr>
-          <tr>
-            <td>Monthly reflection prompts</td>
-            <td>✔️</td>
-            <td>✔️ (extended)</td>
-            <td>✔️ (deep dive)</td>
-          </tr>
-          <tr>
-            <td>Weekly GRIT challenges</td>
-            <td>–</td>
-            <td>✔️</td>
-            <td>✔️</td>
-          </tr>
-          <tr>
-            <td>Habit & progress tracking templates</td>
-            <td>–</td>
-            <td>✔️</td>
-            <td>✔️</td>
-          </tr>
-          <tr>
-            <td>Live Q&A sessions</td>
-            <td>–</td>
-            <td>✔️ (group)</td>
-            <td>✔️ (priority)</td>
-          </tr>
-          <tr>
-            <td>Weekly group coaching calls</td>
-            <td>–</td>
-            <td>–</td>
-            <td>✔️</td>
-          </tr>
-          <tr>
-            <td>Early access to new features</td>
-            <td>–</td>
-            <td>–</td>
-            <td>✔️</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
+          <ul class="price-list">
+            <li>
+              <span class="price-check">✓</span>
+              Everything in Starter
+            </li>
+            <li>
+              <span class="price-check">✓</span>
+              Intermediate training paths & progressions
+            </li>
+            <li>
+              <span class="price-check">✓</span>
+              Expanded video & article library by pillar
+            </li>
+            <li>
+              <span class="price-check">✓</span>
+              Monthly live group coaching Q&A
+            </li>
+            <li>
+              <span class="price-check">✓</span>
+              Priority suggestions for new content
+            </li>
+          </ul>
 
-  <!-- FAQ -->
-  <section class="pricing-faq">
-    <h3>Questions you might be asking</h3>
-    <details>
-      <summary>Is GRIT a replacement for therapy?</summary>
-      <p>
-        No. GRIT is about building daily habits, strength, and resilience. It can support your growth
-        alongside therapy, coaching, fitness, or spiritual practices, but it is not a licensed
-        mental health service.
-      </p>
-    </details>
+          <button class="btn btn-primary" style="width:100%;">
+            Choose Builder
+          </button>
+        </article>
 
-    <details>
-      <summary>Can I cancel anytime?</summary>
-      <p>
-        Yes. You can cancel your membership at any time before your next billing period, and you’ll
-        keep access until the end of your current cycle.
-      </p>
-    </details>
+        <!-- Warrior -->
+        <article class="price-card">
+          <div class="price-name">Warrior</div>
+          <div class="price-amount">
+            $39<span>/month</span>
+          </div>
+          <p class="price-desc">
+            For men who want full immersion: higher accountability, weekly coaching,
+            and advanced paths across all three pillars.
+          </p>
 
-    <details>
-      <summary>Which tier should I choose?</summary>
-      <p>
-        If you’re just starting, choose <strong>Starter</strong>. If you want structure and
-        accountability, choose <strong>Builder</strong>. If you’re ready for deeper work and
-        weekly coaching calls, choose <strong>Warrior</strong>.
-      </p>
-    </details>
+          <ul class="price-list">
+            <li>
+              <span class="price-check">✓</span>
+              Everything in Builder
+            </li>
+            <li>
+              <span class="price-check">✓</span>
+              Advanced strength, conditioning & mindset tracks
+            </li>
+            <li>
+              <span class="price-check">✓</span>
+              Weekly live group coaching calls
+            </li>
+            <li>
+              <span class="price-check">✓</span>
+              Deep-dive workshops on stress, purpose, and leadership
+            </li>
+            <li>
+              <span class="price-check">✓</span>
+              Early access to new features and series
+            </li>
+          </ul>
 
-    <details>
-      <summary>When will the mobile app be available?</summary>
-      <p>
-        GRIT is launching as a web experience first. Your membership will carry over to the app once
-        it’s live, and you’ll get updates as we roll out features.
-      </p>
-    </details>
-  </section>
-</main>
+          <button class="btn btn-primary" style="width:100%;">
+            Choose Warrior
+          </button>
+        </article>
+      </div>
+    </section>
 
-      </section>
+    <!-- Guarantee / Notes -->
+    <section>
+      <div class="section-header">
+        <div>
+          <div class="section-kicker">No games. Just growth.</div>
+          <div class="section-divider"></div>
+          <h2 class="section-title">
+            Built for real <span>men’s lives</span>, not perfect ones.
+          </h2>
+        </div>
+        <p class="section-subtitle">
+          Cancel anytime. No contracts, no hidden fees. GRIT is built around real schedules,
+          real responsibilities, and real setbacks – not fantasy routines.
+        </p>
+      </div>
 
-    </div>
+      <div class="hero-actions">
+        <button class="btn btn-primary" onclick="window.location.href='index.html'">
+          Back to Home
+        </button>
+        <button class="btn btn-ghost" onclick="window.location.href='therapist.html'">
+          Find a Therapist
+        </button>
+      </div>
+    </section>
   </main>
 
   <footer class="footer">
     <div class="footer-inner">
-      <div class="footer-brand">
-        <span class="brand-logo-small">G</span>
-        <div class="footer-brand-text">
-          <span class="footer-brand-main">GRIT</span>
-          <span class="footer-brand-tagline">Strength Built Within</span>
-        </div>
-      </div>
+      <span>© 2025 GRIT. All rights reserved.</span>
       <div class="footer-links">
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
         <a href="privacy.html">Privacy</a>
         <a href="terms.html">Terms</a>
       </div>
-      <p class="footer-copy">
-        &copy; <span id="footer-year"></span> GRIT. All rights reserved.
-      </p>
     </div>
   </footer>
 </body>
