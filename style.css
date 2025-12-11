@@ -756,6 +756,63 @@ button,
 .pillar-section {
   margin-top: 3rem;
 }
+/* ===========================
+   Featured Video Grid
+   =========================== */
+
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.75rem;
+  margin-top: 1.5rem;
+}
+
+.video-card {
+  background: radial-gradient(circle at top, rgba(255, 255, 255, 0.05), var(--grit-steel-mid));
+  border-radius: var(--radius-card);
+  padding: 1.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.75);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.video-pill {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--grit-orange-soft);
+}
+
+.video-title {
+  font-size: 1.05rem;
+}
+
+.video-tagline {
+  font-size: 0.9rem;
+  color: var(--grit-text-muted);
+}
+
+.video-frame {
+  margin-top: 0.5rem;
+  border-radius: 0.9rem;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.video-frame video {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Stack videos on mobile */
+@media (max-width: 900px) {
+  .video-grid {
+    grid-template-columns: 1fr;
+  }
+}
 
 /* ===========================
    Footer
