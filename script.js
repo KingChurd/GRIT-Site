@@ -30,78 +30,214 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* ===========================
-     Therapist Form "AI-style" Summary
+     Helpers
+     =========================== */
+  function extractZip(raw) {
+    if (!raw) return null;
+    const m = raw.match(/\b(\d{5})(?:-\d{4})?\b/);
+    return m ? m[1] : null;
+  }
+
+  function escapeHtml(str) {
+    if (!str) return "";
+    return str
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
+  }
+
+  /* ===========================
+     Therapist Form:
+     Summary + Live Matches
      =========================== */
   const therapistForm = document.getElementById("therapist-form");
 
   if (therapistForm) {
-    const submitBtn = therapistForm.querySelector('button[type="button"]');
+    const submitBtn =
+      document.getElementById("find-matches-btn") ||
+      therapistForm.querySelector('button[type="button"]');
 
-    if (submitBtn) {
-      submitBtn.addEventListener("click", () => {
-        const loc = therapistForm.querySelector("#location")?.value.trim();
-        const format = therapistForm.querySelector("#format")?.value || "";
-        const focus = therapistForm.querySelector("#focus")?.value || "";
-        const budget = therapistForm.querySelector("#budget")?.value || "";
-        const prefs = therapistForm.querySelector("#preferences")?.value.trim();
+    // Where we render everything
+    let resultsSection = document.getElementById("therapist-results");
+    if (!resultsSection) {
+      resultsSection = document.createElement("section");
+      resultsSection.id = "therapist-results";
+      const main = document.querySelector("main");
+      if (main) main.appendChild(resultsSection);
+    }
 
-        let summary = `<p>Based on what you shared, here’s a starting point:</p><ul>`;
+    async function handleTherapistSubmit() {
+      const locInput = therapistForm.querySelector("#location");
+      const formatEl = therapistForm.querySelector("#format");
+      const focusEl = therapistForm.querySelector("#focus");
+      const budgetEl = therapistForm.querySelector("#budget");
+      const prefsEl = therapistForm.querySelector("#preferences");
 
-        if (focus) summary += `<li><strong>Main focus:</strong> ${focus}</li>`;
-        if (format && format !== "No preference")
-          summary += `<li><strong>Preferred format:</strong> ${format}</li>`;
-        if (budget && budget !== "No preference")
-          summary += `<li><strong>Budget:</strong> ${budget} per session</li>`;
-        if (loc) summary += `<li><strong>Location:</strong> ${loc}</li>`;
-        if (prefs)
-          summary += `<li><strong>Preferences:</strong> ${prefs}</li>`;
+      const loc = locInput?.value.trim() || "";
+      const format = formatEl?.value || "";
+      const focus = focusEl?.value || "";
+      const budget = budgetEl?.value || "";
+      const prefs = prefsEl?.value.trim() || "";
 
-        summary += `</ul>
-          <p>This suggests looking for:</p>
-          <ul>
-            <li>A therapist who lists <strong>${focus ||
-              "your main concern"}</strong> as a specialty.</li>
-            <li>Offers <strong>${
-              format && format !== "No preference"
-                ? format.toLowerCase()
-                : "in-person or telehealth"
-            }</strong> sessions.</li>
-            <li>Fits roughly in the <strong>${
-              budget && budget !== "No preference"
-                ? budget
-                : "budget range you’re comfortable with"
-            }</strong>.</li>
-          </ul>
-          <p>Use this summary as a script when you reach out or schedule an intro call.</p>`;
+      const zip = extractZip(loc);
 
-        let results = document.getElementById("therapist-results");
-        if (!results) {
-          results = document.createElement("section");
-          results.id = "therapist-results";
+      // Build summary HTML
+      let summary = `<p>Based on what you shared, here’s a starting point:</p><ul>`;
 
-          const main = document.querySelector("main");
-          if (main) {
-            main.appendChild(results);
-          } else if (therapistForm.parentNode) {
-            therapistForm.parentNode.insertBefore(
-              results,
-              therapistForm.nextSibling
-            );
-          }
-        }
+      if (focus) summary += `<li><strong>Main focus:</strong> ${escapeHtml(focus)}</li>`;
+      if (format && format !== "No preference")
+        summary += `<li><strong>Preferred format:</strong> ${escapeHtml(format)}</li>`;
+      if (budget && budget !== "No preference")
+        summary += `<li><strong>Budget:</strong> ${escapeHtml(budget)} per session</li>`;
+      if (loc) summary += `<li><strong>Location:</strong> ${escapeHtml(loc)}</li>`;
+      if (prefs)
+        summary += `<li><strong>Preferences:</strong> ${escapeHtml(prefs)}</li>`;
 
-        results.innerHTML = `
-          <div class="card">
+      summary += `</ul>
+        <p>This suggests looking for:</p>
+        <ul>
+          <li>A therapist who lists <strong>${escapeHtml(
+            focus || "your main concern"
+          )}</strong> as a specialty.</li>
+          <li>Offers <strong>${
+            format && format !== "No preference"
+              ? escapeHtml(format.toLowerCase())
+              : "in-person or telehealth"
+          }</strong> sessions.</li>
+          <li>Fits roughly in the <strong>${
+            budget && budget !== "No preference"
+              ? escapeHtml(budget)
+              : "budget range you’re comfortable with"
+          }</strong>.</li>
+        </ul>
+        <p>Use this summary as a script when you reach out or schedule an intro call.</p>`;
+
+      // Base layout for results area
+      resultsSection.innerHTML = `
+        <div class="results-wrapper">
+          <div class="results-summary-card">
             <div class="card-label">Step 2</div>
             <h2 class="card-title">Your starting recommendation</h2>
             <p class="card-tagline">
               This isn’t a diagnosis, just a direction to help you have a clearer first conversation with a therapist.
             </p>
-            ${summary}
+            <div class="summary-box">
+              ${summary}
+            </div>
           </div>
-        `;
 
-        results.scrollIntoView({ behavior: "smooth", block: "start" });
+          <div class="results-matches">
+            <div class="card-label">Step 3</div>
+            <h2 class="card-title">Therapists near you</h2>
+            <p class="card-tagline" id="matches-status">
+              ${
+                zip
+                  ? "Searching the NPI registry for mental-health providers in your ZIP..."
+                  : "Add a 5-digit ZIP code to see live therapist matches pulled from the NPI registry."
+              }
+            </p>
+            <div class="therapist-grid" id="therapist-grid"></div>
+          </div>
+        </div>
+      `;
+
+      resultsSection.scrollIntoView({ behavior: "smooth", block: "start" });
+
+      // If no zip, we stop after summary
+      if (!zip) {
+        return;
+      }
+
+      const grid = document.getElementById("therapist-grid");
+      const statusEl = document.getElementById("matches-status");
+
+      if (!grid || !statusEl) return;
+
+      // Call your backend API
+      try {
+        const params = new URLSearchParams({
+          zip,
+          focus: focus || ""
+        });
+
+        const res = await fetch(`/api/therapists?${params.toString()}`);
+        if (!res.ok) {
+          throw new Error(`HTTP ${res.status}`);
+        }
+
+        const data = await res.json();
+        const results = Array.isArray(data.results) ? data.results : [];
+
+        if (!results.length) {
+          statusEl.textContent =
+            "We didn’t find mental-health therapists in that exact ZIP. Try another ZIP, or search a nearby city on Psychology Today, your insurance portal, or local directories.";
+          return;
+        }
+
+        statusEl.textContent = `${data.count || results.length} therapist${
+          (data.count || results.length) === 1 ? "" : "s"
+        } found in the NPI registry for that ZIP. Here are some you can start with:`;
+
+        // Limit how many we show at once
+        results.slice(0, 12).forEach((t) => {
+          const name = escapeHtml(t.name || "Therapist");
+          const credential = escapeHtml(t.credential || "");
+          const city = escapeHtml(t.city || "");
+          const state = escapeHtml(t.state || "");
+          const postal = escapeHtml(t.postal_code || "");
+          const phone = escapeHtml(t.phone || "");
+
+          const specialtyText = (t.taxonomies || [])
+            .map((tx) => tx && tx.desc)
+            .filter(Boolean)
+            .join(", ");
+
+          const specialties = escapeHtml(
+            specialtyText || "Mental / behavioral health"
+          );
+
+          const card = document.createElement("article");
+          card.className = "therapist-card";
+
+          card.innerHTML = `
+            <div class="therapist-header">
+              <h3>${name}${credential ? ", " + credential : ""}</h3>
+              <div class="therapist-location">
+                ${[city, state, postal].filter(Boolean).join(", ")}
+              </div>
+            </div>
+            <div class="therapist-meta-row">
+              <div class="therapist-meta">
+                <strong>Specialties</strong>
+                <span>${specialties}</span>
+              </div>
+              <div class="therapist-meta">
+                <strong>Phone</strong>
+                <span>${phone || "See their website or directory listing"}</span>
+              </div>
+              <div class="therapist-meta">
+                <strong>Next step</strong>
+                <span>Look up this name with “therapist” + your city on Google or your insurance portal.</span>
+              </div>
+            </div>
+          `;
+
+          grid.appendChild(card);
+        });
+      } catch (err) {
+        console.error("Therapist API error:", err);
+        if (statusEl) {
+          statusEl.textContent =
+            "We had trouble pulling live matches right now. Your summary is still a great script to use when you search on Psychology Today, your insurance portal, or local directories.";
+        }
+      }
+    }
+
+    if (submitBtn) {
+      submitBtn.addEventListener("click", () => {
+        handleTherapistSubmit();
       });
     }
   }
@@ -199,7 +335,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       },
       {
-        threshold: 0.1,
+        threshold: 0.1
       }
     );
 
