@@ -721,6 +721,41 @@ button,
   font-size: 0.78rem;
   color: var(--grit-text-muted);
 }
+/* Thumbnails inside grid cards */
+.grid-thumb {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 0.75rem;
+  background: #000;
+}
+
+.grid-thumb img,
+.grid-thumb video {
+  display: block;
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+/* Slight “video” feel on SORA thumbs */
+.video-thumb::after {
+  content: "▶";
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 0 18px rgba(0, 0, 0, 0.9);
+  pointer-events: none;
+}
+
+.pillar-section {
+  margin-top: 3rem;
+}
 
 /* ===========================
    Footer
