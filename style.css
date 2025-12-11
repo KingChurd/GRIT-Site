@@ -1010,6 +1010,77 @@ textarea:focus {
     grid-template-columns: minmax(0, 1fr);
   }
 }
+/* ===========================
+   Article Layout
+   =========================== */
+
+.article-main {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 5rem 1.5rem 4rem;
+}
+
+.article-header {
+  margin-bottom: 2rem;
+}
+
+.article-pill {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--grit-text-muted);
+  margin-bottom: 0.3rem;
+}
+
+.article-title {
+  font-size: 1.9rem;
+  margin: 0.1rem 0 0.4rem;
+}
+
+.article-title span {
+  color: var(--grit-orange-soft);
+}
+
+.article-meta {
+  font-size: 0.85rem;
+  color: var(--grit-text-muted);
+}
+
+.article-body {
+  font-size: 0.98rem;
+  line-height: 1.8;
+  color: var(--grit-text-main);
+}
+
+.article-body h2,
+.article-body h3,
+.article-body h4 {
+  margin-top: 1.8rem;
+  margin-bottom: 0.6rem;
+}
+
+.article-body p {
+  margin: 0 0 1rem;
+}
+
+.article-body ul {
+  margin: 0 0 1rem 1.25rem;
+  padding: 0;
+}
+
+.article-body li {
+  margin-bottom: 0.4rem;
+}
+
+.article-body blockquote {
+  margin: 1.2rem 0;
+  padding: 0.9rem 1.2rem;
+  border-left: 3px solid var(--grit-orange-soft);
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 8px;
+  color: var(--grit-text-muted);
+  font-style: italic;
+}
 
 @media (max-width: 480px) {
   .hero-title {
