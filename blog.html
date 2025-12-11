@@ -2,147 +2,196 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>GRIT – Articles & Insights</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Read articles on mental, physical, and spiritual strength for real men in real life." />
-  <link rel="stylesheet" href="style.css" />
-  <script defer src="script.js"></script>
+  <title>GRIT – Articles & Deep Dives</title>
+
+  <link rel="stylesheet" href="./style.css" />
+  <script defer src="./script.js"></script>
 </head>
 <body>
+  <!-- Background Orbs (same global effect) -->
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+  <div class="bg-orb orb-3"></div>
+
+  <!-- NAVBAR -->
   <header class="navbar">
     <div class="nav-inner">
-      <a href="index.html" class="brand">
+      <a href="./index.html" class="brand">
         <span class="brand-logo">G</span>
         <span class="brand-text">
-          <span class="brand-main">GRIT</span>
+          <span class="brand-title">GRIT</span>
           <span class="brand-tagline">Strength Built Within</span>
         </span>
       </a>
+
       <nav class="nav-links">
-        <a href="index.html" class="nav-link">Home</a>
-        <a href="pricing.html" class="nav-link">Pricing</a>
-        <a href="therapists.html" class="nav-link">Find a Therapist</a>
-        <a href="blog.html" class="nav-link">Blog</a>
-        <a href="video-library.html" class="nav-link">Video Library</a>
-        <a href="about.html" class="nav-link">About</a>
-        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="./index.html">Home</a>
+        <a href="./pricing.html">Pricing</a>
+        <a href="./library.html">Library</a>
+        <a href="./blog.html" class="active">Articles</a>
+        <a href="./therapist.html">Find a Therapist</a>
       </nav>
-      <div class="nav-auth">
-        <a href="login.html" class="nav-login">Log In</a>
-        <a href="signup.html" class="nav-signup">Join GRIT</a>
+
+      <div class="nav-cta">
+        <a class="btn btn-ghost" href="./login.html">Log In</a>
+        <a class="btn btn-primary" href="./pricing.html">Get Started</a>
       </div>
-      <button class="nav-toggle" aria-label="Toggle navigation">
-        <span class="nav-toggle-bar"></span>
-        <span class="nav-toggle-bar"></span>
-      </button>
+      <!-- mobile nav toggle injected by script.js -->
     </div>
   </header>
 
-<main>
-  <!-- Blog Header -->
-  <section>
-    <div class="section-header">
-      <div>
-        <div class="section-kicker">GRIT Blog</div>
-        <div class="section-divider"></div>
-        <h1 class="section-title">
-          Research-backed guides for men's <span>mental, physical, and spiritual</span> health.
-        </h1>
+  <main>
+    <!-- Page Header -->
+    <section>
+      <div class="section-header">
+        <div>
+          <div class="section-kicker">Articles & Deep Dives</div>
+          <div class="section-divider"></div>
+          <h1 class="section-title">
+            Long-form guides built for <span>men who actually want to grow</span>.
+          </h1>
+        </div>
+        <p class="section-subtitle">
+          Evidence-based articles on the three GRIT pillars – physical, mental, and spiritual.
+          Use these as roadmaps, reflection tools, or starting points for real change.
+        </p>
       </div>
-      <p class="section-subtitle">
-        Deep dives on the three pillars of GRIT so you can build strength from the inside out —
-        not just more noise, but grounded, practical tools.
-      </p>
-    </div>
-  </section>
+    </section>
 
-  <!-- Blog Grid -->
-  <section>
-    <div class="grid-cards">
-
-      <!-- Post 1: Three Pillars -->
-      <a href="./posts/three-pillars-mens-health.html" class="grid-card">
-        <div class="grid-tag">Mental · Physical · Spiritual · ~18 min read</div>
-        <h2 class="grid-title">
-          The Three Pillars of Men's Health: Why Mental, Physical, and Spiritual Wellness Can't Be Separated
-        </h2>
+    <!-- Filters (reuse same pattern as library) -->
+    <section>
+      <div class="card">
+        <div class="card-label">Filter</div>
+        <h2 class="card-title">Find the right article for this season</h2>
         <p class="card-tagline">
-          A big-picture map of men's health — how the three pillars stack, interact, and either lift you up or drag you down.
+          Filter by pillar and reading time. Start where you feel the most pull – or where you’re
+          avoiding the most.
         </p>
-        <div class="grid-meta">
-          <span>All Three Pillars</span>
-          <span>Read →</span>
+
+        <div class="input-row">
+          <div class="input-field">
+            <label for="pillar-filter">Pillar</label>
+            <select id="pillar-filter">
+              <option>All Pillars</option>
+              <option>Mental</option>
+              <option>Physical</option>
+              <option>Spiritual</option>
+            </select>
+          </div>
+
+          <div class="input-field">
+            <label for="type-filter">Content Type</label>
+            <select id="type-filter">
+              <option>All Types</option>
+              <option>Article</option>
+            </select>
+          </div>
+
+          <div class="input-field">
+            <label for="length-filter">Reading Time</label>
+            <select id="length-filter">
+              <option>Any length</option>
+              <option>Under 10 minutes</option>
+              <option>10–20 minutes</option>
+              <option>20+ minutes</option>
+            </select>
+          </div>
         </div>
-      </a>
+      </div>
+    </section>
 
-      <!-- Post 2: Physical Pillar -->
-      <a href="./posts/physical-foundation-body-base.html" class="grid-card">
-        <div class="grid-tag">Physical · ~20 min read</div>
-        <h2 class="grid-title">
-          The Physical Foundation: Why Your Body Is the Base of Everything
-        </h2>
-        <p class="card-tagline">
-          Strength training, sleep, nutrition, and recovery — how your body becomes the platform for every other part of your life.
-        </p>
-        <div class="grid-meta">
-          <span>Physical Pillar</span>
-          <span>Read →</span>
-        </div>
-      </a>
+    <!-- Article Grid -->
+    <section>
+      <div class="grid-cards">
 
-      <!-- Post 3: Mental Pillar -->
-      <a href="./posts/mental-pillar-breaking-silence.html" class="grid-card">
-        <div class="grid-tag">Mental · ~18 min read</div>
-        <h2 class="grid-title">
-          The Mental Pillar: Breaking the Silence and Reclaiming Your Mind
-        </h2>
-        <p class="card-tagline">
-          Why men stay quiet, what it costs, and how to actually get help without feeling like you’re losing your edge.
-        </p>
-        <div class="grid-meta">
-          <span>Mental Pillar</span>
-          <span>Read →</span>
-        </div>
-      </a>
+        <!-- Post 1: Three Pillars -->
+        <a class="grid-card" href="./posts/three-pillars-mens-health.html">
+          <div class="grid-tag">All Pillars · Article · 20 min</div>
+          <h3 class="grid-title">
+            The Three Pillars of Men's Health: Why Mental, Physical, and Spiritual Wellness Can't Be Separated
+          </h3>
+          <p class="card-tagline">
+            A big-picture blueprint for how your mind, body, and spirit interact – and why you keep stalling out
+            when you only focus on one pillar at a time.
+          </p>
+          <div class="grid-meta">
+            <span>Deep Dive · Foundational</span>
+            <span>Start here →</span>
+          </div>
+        </a>
 
-      <!-- Post 4: Spiritual Pillar -->
-      <a href="./posts/spiritual-pillar-meaning-purpose-connection.html" class="grid-card">
-        <div class="grid-tag">Spiritual · ~16 min read</div>
-        <h2 class="grid-title">
-          The Spiritual Pillar: Finding Meaning, Purpose, and Connection Beyond Religion
-        </h2>
-        <p class="card-tagline">
-          Spirituality without fluff — purpose, meaning, and connection for men who want more than just survival.
-        </p>
-        <div class="grid-meta">
-          <span>Spiritual Pillar</span>
-          <span>Read →</span>
-        </div>
-      </a>
+        <!-- Post 2: Physical -->
+        <a class="grid-card" href="./posts/physical-foundation.html">
+          <div class="grid-tag">Physical · Article · 14 min</div>
+          <h3 class="grid-title">
+            The Physical Foundation: Why Your Body Is the Base of Everything
+          </h3>
+          <p class="card-tagline">
+            Strength, energy, longevity. How exercise, nutrition, sleep, and recovery create the base that
+            everything else in your life stands on.
+          </p>
+          <div class="grid-meta">
+            <span>Training · Health · Longevity</span>
+            <span>Read article →</span>
+          </div>
+        </a>
 
-    </div>
-  </section>
-</main>
+        <!-- Post 3: Mental -->
+        <a class="grid-card" href="./posts/mental-pillar-breaking-silence.html">
+          <div class="grid-tag">Mental · Article · 18 min</div>
+          <h3 class="grid-title">
+            The Mental Pillar: Breaking the Silence and Reclaiming Your Mind
+          </h3>
+          <p class="card-tagline">
+            Why men stay quiet until they’re in crisis, what that silence is costing us, and how to start
+            getting help without losing your identity.
+          </p>
+          <div class="grid-meta">
+            <span>Mindset · Emotions · Resilience</span>
+            <span>Read article →</span>
+          </div>
+        </a>
 
+        <!-- Post 4: Spiritual -->
+        <a class="grid-card" href="./posts/spiritual-pillar-meaning-purpose-connection.html">
+          <div class="grid-tag">Spiritual · Article · 20 min</div>
+          <h3 class="grid-title">
+            The Spiritual Pillar: Finding Meaning, Purpose, and Connection Beyond Religion
+          </h3>
+          <p class="card-tagline">
+            Not about becoming “religious” – this is about purpose, meaning, and building a life that actually
+            feels worth living.
+          </p>
+          <div class="grid-meta">
+            <span>Purpose · Identity · Direction</span>
+            <span>Read article →</span>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section>
+      <div class="hero-actions">
+        <a class="btn btn-ghost" href="./library.html">
+          Browse all content
+        </a>
+        <a class="btn btn-primary" href="./therapist.html">
+          Find a therapist
+        </a>
+      </div>
+    </section>
+  </main>
 
   <footer class="footer">
     <div class="footer-inner">
-      <div class="footer-brand">
-        <span class="brand-logo-small">G</span>
-        <div class="footer-brand-text">
-          <span class="footer-brand-main">GRIT</span>
-          <span class="footer-brand-tagline">Strength Built Within</span>
-        </div>
-      </div>
+      <span>© 2025 GRIT. All rights reserved.</span>
       <div class="footer-links">
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-        <a href="privacy.html">Privacy</a>
-        <a href="terms.html">Terms</a>
+        <a href="./privacy.html">Privacy</a>
+        <a href="./terms.html">Terms</a>
       </div>
-      <p class="footer-copy">
-        &copy; <span id="footer-year"></span> GRIT. All rights reserved.
-      </p>
     </div>
   </footer>
 </body>
