@@ -4,19 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GRIT – Library</title>
-  <link rel="stylesheet" href="style.css" />
-  <script defer src="script.js"></script>
+
+  <link rel="stylesheet" href="./style.css" />
+  <script defer src="./script.js"></script>
 </head>
 <body>
-  <!-- Animated Background Orbs -->
+  <!-- Background Orbs -->
   <div class="bg-orb orb-1"></div>
   <div class="bg-orb orb-2"></div>
   <div class="bg-orb orb-3"></div>
 
-  <!-- Navbar -->
+  <!-- NAVBAR -->
   <header class="navbar">
     <div class="nav-inner">
-      <a href="index.html" class="brand">
+      <a href="./index.html" class="brand">
         <span class="brand-logo">G</span>
         <span class="brand-text">
           <span class="brand-title">GRIT</span>
@@ -25,168 +26,305 @@
       </a>
 
       <nav class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="pricing.html">Pricing</a>
-        <a href="library.html" class="active">Library</a>
-        <a href="therapist.html">Find a Therapist</a>
+        <a href="./index.html">Home</a>
+        <a href="./pricing.html">Pricing</a>
+        <a href="./library.html" class="active">Library</a>
+        <a href="./blog.html">Articles</a>
+        <a href="./therapist.html">Find a Therapist</a>
       </nav>
 
       <div class="nav-cta">
-        <button class="btn btn-ghost">Log In</button>
-        <button class="btn btn-primary">Get Started</button>
+        <a class="btn btn-ghost" href="./login.html">Log In</a>
+        <a class="btn btn-primary" href="./pricing.html">Get Started</a>
       </div>
-      <!-- nav-toggle is injected by script.js on mobile -->
+      <!-- mobile nav toggle injected by script.js -->
     </div>
   </header>
 
   <main>
-    <!-- Library Header -->
+    <!-- Header -->
     <section>
       <div class="section-header">
         <div>
-          <div class="section-kicker">Content Library</div>
+          <div class="section-kicker">GRIT Library</div>
           <div class="section-divider"></div>
           <h1 class="section-title">
-            Videos and articles for <span>every pillar</span>.
+            Everything lives here – <span>articles, videos, and tools</span> by pillar.
           </h1>
         </div>
         <p class="section-subtitle">
-          Browse content across Mental, Physical, and Spiritual GRIT. This is where you’ll
-          come to learn, reset, and gear up for the next step in your journey.
+          Start with the pillar that’s yelling the loudest – or the one you’ve ignored the longest.
+          Filter by pillar, format, or time and build your own growth stack.
         </p>
       </div>
     </section>
 
-    <!-- Filters Row -->
+    <!-- Filters -->
     <section>
-      <div class="input-row">
-        <div class="input-field">
-          <label for="pillar-filter">Pillar</label>
-          <select id="pillar-filter">
-            <option>All Pillars</option>
-            <option>Mental</option>
-            <option>Physical</option>
-            <option>Spiritual</option>
-          </select>
-        </div>
+      <div class="card">
+        <div class="card-label">Filter</div>
+        <h2 class="card-title">Dial in what you need today</h2>
+        <p class="card-tagline">
+          These filters work across everything below – articles, SORA videos, and future tools.
+        </p>
 
-        <div class="input-field">
-          <label for="type-filter">Type</label>
-          <select id="type-filter">
-            <option>All Types</option>
-            <option>Video</option>
-            <option>Article</option>
-            <option>Audio</option>
-          </select>
-        </div>
+        <div class="input-row">
+          <div class="input-field">
+            <label for="pillar-filter">Pillar</label>
+            <select id="pillar-filter">
+              <option>All Pillars</option>
+              <option>Mental</option>
+              <option>Physical</option>
+              <option>Spiritual</option>
+            </select>
+          </div>
 
-        <div class="input-field">
-          <label for="length-filter">Length</label>
-          <select id="length-filter">
-            <option>Any length</option>
-            <option>Under 10 minutes</option>
-            <option>10–20 minutes</option>
-            <option>20+ minutes</option>
-          </select>
+          <div class="input-field">
+            <label for="type-filter">Content Type</label>
+            <select id="type-filter">
+              <option>All Types</option>
+              <option>Article</option>
+              <option>Video</option>
+            </select>
+          </div>
+
+          <div class="input-field">
+            <label for="length-filter">Length</label>
+            <select id="length-filter">
+              <option>Any length</option>
+              <option>Under 10 minutes</option>
+              <option>10–20 minutes</option>
+              <option>20+ minutes</option>
+            </select>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Library Grid -->
+    <!-- FEATURED – the big “3 pillars” article -->
     <section>
+      <div class="section-kicker">Featured</div>
+      <h2 class="section-title">
+        Your starting blueprint: <span>The Three Pillars</span>
+      </h2>
+
       <div class="grid-cards">
-        <!-- Mental -->
-        <article class="grid-card">
-          <div class="grid-tag">Mental • 15 min video</div>
-          <h2 class="grid-title">Resetting After a Hard Day</h2>
+        <a class="grid-card" href="./posts/three-pillars-mens-health.html">
+          <div class="grid-thumb">
+            <img
+              src="./assets/blog-three-pillars.jpg"
+              alt="Man reflecting on mental, physical, and spiritual health."
+              loading="lazy"
+            />
+          </div>
+          <div class="grid-tag">All Pillars · Article · 20 min</div>
+          <h3 class="grid-title">
+            The Three Pillars of Men's Health: Why Mental, Physical, and Spiritual Wellness Can't Be Separated
+          </h3>
           <p class="card-tagline">
-            A step-by-step walkthrough for decompressing after work without zoning out
-            on your phone for hours.
+            The “why” behind GRIT. How your mind, body, and spirit stack together – and why progress stalls
+            when you only work on one.
           </p>
           <div class="grid-meta">
-            <span>Level: Beginner</span>
-            <span>Watch · Save</span>
+            <span>Deep Dive · Foundation</span>
+            <span>Read article →</span>
           </div>
-        </article>
+        </a>
+      </div>
+    </section>
 
-        <article class="grid-card">
-          <div class="grid-tag">Mental • 7 min article</div>
-          <h2 class="grid-title">How to Stop Overthinking Conversations</h2>
-          <p class="card-tagline">
-            Simple thought exercises to quiet the replay reel and move forward with
-            more confidence.
-          </p>
-          <div class="grid-meta">
-            <span>7 min read</span>
-            <span>Read · Save</span>
-          </div>
-        </article>
+    <!-- PHYSICAL PILLAR -->
+    <section class="pillar-section">
+      <div class="section-kicker">Physical Pillar</div>
+      <h2 class="section-title">
+        Build a body that can <span>carry the rest of your life</span>.
+      </h2>
 
-        <!-- Physical -->
-        <article class="grid-card">
-          <div class="grid-tag">Physical • 25 min video</div>
-          <h2 class="grid-title">Strength Training with Minimal Equipment</h2>
+      <div class="grid-cards">
+        <!-- Article -->
+        <a class="grid-card" href="./posts/physical-foundation.html">
+          <div class="grid-thumb">
+            <img
+              src="./assets/blog-physical.jpg"
+              alt="Man training with intensity in a gritty gym."
+              loading="lazy"
+            />
+          </div>
+          <div class="grid-tag">Physical · Article · 14 min</div>
+          <h3 class="grid-title">
+            The Physical Foundation: Why Your Body Is the Base of Everything
+          </h3>
           <p class="card-tagline">
-            A full-body routine using just dumbbells and body weight to build practical,
-            everyday strength.
+            Strength, energy, and longevity – backed by research on training, nutrition, sleep, and recovery.
           </p>
           <div class="grid-meta">
-            <span>Level: Intermediate</span>
-            <span>Watch · Add</span>
+            <span>Training · Health · Longevity</span>
+            <span>Read article →</span>
           </div>
-        </article>
+        </a>
 
-        <article class="grid-card">
-          <div class="grid-tag">Physical • 10 min article</div>
-          <h2 class="grid-title">Sleep, Recovery, and Real Progress</h2>
+        <!-- SORA Video card (Physical) -->
+        <a
+          class="grid-card"
+          href="https://videos.openai.com/YOUR-SORA-PHYSICAL-URL"
+          target="_blank"
+          rel="noopener"
+        >
+          <div class="grid-thumb video-thumb">
+            <video
+              src="https://videos.openai.com/YOUR-SORA-PHYSICAL-URL"
+              playsinline
+              muted
+              loop
+              preload="metadata"
+            ></video>
+          </div>
+          <div class="grid-tag">Physical · Video · 1–2 min</div>
+          <h3 class="grid-title">
+            SORA Spotlight: The Physical GRIT Teaser
+          </h3>
           <p class="card-tagline">
-            Why recovery matters more than you’ve been told – and how to fix your
-            simple recovery mistakes.
+            Short cinematic hit to remind you why taking care of your body isn’t optional.
           </p>
           <div class="grid-meta">
-            <span>10 min read</span>
-            <span>Read · Save</span>
+            <span>Hype · Trailer</span>
+            <span>Play video →</span>
           </div>
-        </article>
+        </a>
+      </div>
+    </section>
 
-        <!-- Spiritual -->
-        <article class="grid-card">
-          <div class="grid-tag">Spiritual • 18 min reflection</div>
-          <h2 class="grid-title">Building a Personal Code</h2>
-          <p class="card-tagline">
-            Use this guided reflection to define the values you’re actually willing
-            to live by.
-          </p>
-          <div class="grid-meta">
-            <span>Workbook style</span>
-            <span>Download</span>
-          </div>
-        </article>
+    <!-- MENTAL PILLAR -->
+    <section class="pillar-section">
+      <div class="section-kicker">Mental Pillar</div>
+      <h2 class="section-title">
+        Stop white-knuckling it – <span>build a stronger mind instead</span>.
+      </h2>
 
-        <article class="grid-card">
-          <div class="grid-tag">Spiritual • 12 min audio</div>
-          <h2 class="grid-title">Anchoring Yourself Before the Day Starts</h2>
+      <div class="grid-cards">
+        <!-- Article -->
+        <a class="grid-card" href="./posts/mental-pillar-breaking-silence.html">
+          <div class="grid-thumb">
+            <img
+              src="./assets/blog-mental.jpg"
+              alt="Man sitting on a bench at night, deep in thought."
+              loading="lazy"
+            />
+          </div>
+          <div class="grid-tag">Mental · Article · 18 min</div>
+          <h3 class="grid-title">
+            The Mental Pillar: Breaking the Silence and Reclaiming Your Mind
+          </h3>
           <p class="card-tagline">
-            A simple morning practice to align your head and heart before the day
-            takes over.
+            Why men go quiet until they’re in crisis, and how to start getting help without losing who you are.
           </p>
           <div class="grid-meta">
-            <span>Listen</span>
-            <span>Save</span>
+            <span>Mindset · Emotions · Resilience</span>
+            <span>Read article →</span>
           </div>
-        </article>
+        </a>
+
+        <!-- SORA Video card (Mental) -->
+        <a
+          class="grid-card"
+          href="https://videos.openai.com/YOUR-SORA-MENTAL-URL"
+          target="_blank"
+          rel="noopener"
+        >
+          <div class="grid-thumb video-thumb">
+            <video
+              src="https://videos.openai.com/YOUR-SORA-MENTAL-URL"
+              playsinline
+              muted
+              loop
+              preload="metadata"
+            ></video>
+          </div>
+          <div class="grid-tag">Mental · Video · 1–2 min</div>
+          <h3 class="grid-title">
+            SORA Spotlight: The Mental GRIT Teaser
+          </h3>
+          <p class="card-tagline">
+            Visual reminder that “toughing it out” isn’t the same as healing.
+          </p>
+          <div class="grid-meta">
+            <span>Awareness · Hype</span>
+            <span>Play video →</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- SPIRITUAL PILLAR -->
+    <section class="pillar-section">
+      <div class="section-kicker">Spiritual Pillar</div>
+      <h2 class="section-title">
+        Build a life that feels <span>worth fighting for</span>.
+      </h2>
+
+      <div class="grid-cards">
+        <!-- Article -->
+        <a class="grid-card" href="./posts/spiritual-pillar-meaning-purpose-connection.html">
+          <div class="grid-thumb">
+            <img
+              src="./assets/blog-spiritual.jpg"
+              alt="Man standing on a mountain ridge at sunrise, looking over the horizon."
+              loading="lazy"
+            />
+          </div>
+          <div class="grid-tag">Spiritual · Article · 20 min</div>
+          <h3 class="grid-title">
+            The Spiritual Pillar: Finding Meaning, Purpose, and Connection Beyond Religion
+          </h3>
+          <p class="card-tagline">
+            Purpose, meaning, and direction – whether you’re religious, spiritual, or just figuring it out.
+          </p>
+          <div class="grid-meta">
+            <span>Purpose · Identity · Direction</span>
+            <span>Read article →</span>
+          </div>
+        </a>
+
+        <!-- SORA Video card (Spiritual) -->
+        <a
+          class="grid-card"
+          href="https://videos.openai.com/YOUR-SORA-SPIRITUAL-URL"
+          target="_blank"
+          rel="noopener"
+        >
+          <div class="grid-thumb video-thumb">
+            <video
+              src="https://videos.openai.com/YOUR-SORA-SPIRITUAL-URL"
+              playsinline
+              muted
+              loop
+              preload="metadata"
+            ></video>
+          </div>
+          <div class="grid-tag">Spiritual · Video · 1–2 min</div>
+          <h3 class="grid-title">
+            SORA Spotlight: The Spiritual GRIT Teaser
+          </h3>
+          <p class="card-tagline">
+            A visual reminder that you’re part of something bigger than your to-do list.
+          </p>
+          <div class="grid-meta">
+            <span>Meaning · Awe</span>
+            <span>Play video →</span>
+          </div>
+        </a>
       </div>
     </section>
 
     <!-- CTA -->
     <section>
       <div class="hero-actions">
-        <button class="btn btn-primary" onclick="window.location.href='pricing.html'">
-          See Plans
-        </button>
-        <button class="btn btn-ghost" onclick="window.location.href='therapist.html'">
-          Find a Therapist
-        </button>
+        <a class="btn btn-ghost" href="./blog.html">
+          Read full deep-dives
+        </a>
+        <a class="btn btn-primary" href="./pricing.html">
+          Unlock full GRIT experience
+        </a>
       </div>
     </section>
   </main>
@@ -195,8 +333,8 @@
     <div class="footer-inner">
       <span>© 2025 GRIT. All rights reserved.</span>
       <div class="footer-links">
-        <a href="privacy.html">Privacy</a>
-        <a href="terms.html">Terms</a>
+        <a href="./privacy.html">Privacy</a>
+        <a href="./terms.html">Terms</a>
       </div>
     </div>
   </footer>
